@@ -131,7 +131,7 @@ body {
     box-shadow: none;
     padding: 10px;
     min-width: 100%;
-    text-align: left;
+    text-align: center;
 }
 
 .dropdown-content .interval:hover {
@@ -441,7 +441,7 @@ button:active {
     box-shadow: none;
     padding: 10px;
     min-width: 100%;
-    text-align: left;
+    text-align: center;
 }
 
 .dropdown-content .interval:hover {
@@ -767,7 +767,7 @@ button:active {
     
     .top-controls {
         flex-direction: column;
-        gap: 16px;
+        gap: 8px;
         width: 100%;
         align-items: stretch;
     }
@@ -775,6 +775,7 @@ button:active {
     .timer-type-buttons {
         flex-direction: column;
         width: 100%;
+        gap: 8px;
     }
 
     .timer-type {
@@ -784,11 +785,37 @@ button:active {
 
     .dropdown {
         width: 100%;
+        margin-top: 0;
     }
 
     .dropdown-button {
         width: 100%;
         justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .selected-time {
+        flex: 1;
+        text-align: center;
+    }
+
+    .dropdown-button i {
+        flex-shrink: 0;
+    }
+
+    .dropdown-content .interval {
+        text-align: center;
+        padding: 12px 20px;
+    }
+
+    .custom-interval {
+        padding: 10px 20px;
+        justify-content: center;
+    }
+
+    .custom-interval input {
+        text-align: center;
+        width: 100%;
     }
 }
 
