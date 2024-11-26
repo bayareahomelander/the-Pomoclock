@@ -758,7 +758,7 @@ button:active {
 /* Add media queries for smaller screens */
 @media (max-width: 768px) {
     .timer {
-        font-size: 120px; /* Smaller timer for mobile */
+        font-size: 120px;
     }
     
     .timer-container {
@@ -768,6 +768,27 @@ button:active {
     .top-controls {
         flex-direction: column;
         gap: 16px;
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .timer-type-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .timer-type {
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown {
+        width: 100%;
+    }
+
+    .dropdown-button {
+        width: 100%;
+        justify-content: space-between;
     }
 }
 
