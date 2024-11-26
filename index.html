@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>the Pomo Clock</title>
+    <script>
+        // Check theme before page loads to prevent flash
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    <meta name="description" content="A simple and effective Pomodoro Timer with task management">
+    <meta name="keywords" content="pomodoro, timer, productivity, todo list">
+    <meta property="og:title" content="Pomodoro Timer">
+    <meta property="og:description" content="Stay focused and productive with this Pomodoro Timer">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="path-to-your-preview-image.jpg">
+    <meta name="theme-color" content="#e6eeff">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <i class="fas fa-moon" aria-hidden="true"></i>
+    </button>
+    <div class="timer-container">
+        <div class="top-controls">
+            <div class="timer-type-buttons">
+                <button class="timer-type active" onclick="switchTimerType('main')">Focus</button>
+                <button class="timer-type" onclick="switchTimerType('break')">Break</button>
+            </div>
+            
+            <!-- Main Timer Intervals Dropdown -->
+            <div class="dropdown" id="main-intervals">
+                <button class="dropdown-button">
+                    <span class="selected-time">25 min</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <button class="interval" onclick="setTimerDuration(5)">5 minutes</button>
+                    <button class="interval" onclick="setTimerDuration(10)">10 minutes</button>
+                    <button class="interval" onclick="setTimerDuration(15)">15 minutes</button>
+                    <button class="interval" onclick="setTimerDuration(25)">25 minutes</button>
+                    <div class="custom-interval">
+                        <input type="number" min="1" max="120" placeholder="Custom">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Break Timer Intervals Dropdown -->
+            <div class="dropdown" id="break-intervals" style="display: none;">
+                <button class="dropdown-button">
+                    <span class="selected-time">5 min</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <button class="interval" onclick="setTimerDuration(5)">5 minutes</button>
+                    <button class="interval" onclick="setTimerDuration(15)">15 minutes</button>
+                    <div class="custom-interval">
+                        <input type="number" min="1" max="120" placeholder="Custom">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="timer" id="timer">25:00</div>
+        <div class="buttons">
+            <button class="start-pause" onclick="toggleTimer()">Start</button>
+            <button class="icon-button" onclick="resetTimer()" title="Reset">
+                <i class="fas fa-redo-alt"></i>
+            </button>
+        </div>
+        
+        <!-- Add Todo List section -->
+        <div class="todo-container">
+            <div class="todo-input-container">
+                <input type="text" id="todo-input" placeholder="Add a task...">
+                <button onclick="addTodo()" class="add-todo">Add</button>
+            </div>
+            <ul id="todo-list" class="todo-list"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

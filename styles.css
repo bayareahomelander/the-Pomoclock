@@ -1,0 +1,784 @@
+:root {
+    /* Light theme colors */
+    --bg-primary: #e6eeff;
+    --bg-break: #e6fff0;
+    --text-primary: #2d3748;
+    --button-primary: #718096;
+    --button-hover: #4a5568;
+    --timer-start: #48bb78;
+    --timer-pause: #e53e3e;
+    --timer-start-hover: #38a169;
+    --timer-pause-hover: #c53030;
+    --dropdown-bg: #ffffff;
+    --dropdown-hover: #f0f4f8;
+    --border-color: rgba(113, 128, 150, 0.3);
+}
+
+[data-theme="dark"] {
+    /* Dark theme colors - updating text colors to be more muted */
+    --bg-primary: #1a202c;
+    --bg-break: #1c2a25;
+    --text-primary: #a0aec0;  /* Changed from #e2e8f0 to a more muted gray */
+    --button-primary: #4a5568;
+    --button-hover: #2d3748;
+    --timer-start: #2f855a;
+    --timer-pause: #c53030;
+    --timer-start-hover: #276749;
+    --timer-pause-hover: #9b2c2c;
+    --dropdown-bg: #2d3748;
+    --dropdown-hover: #4a5568;
+    --border-color: rgba(160, 174, 192, 0.3);  /* Updated to match new text color */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background-color: var(--bg-primary);
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--button-primary);
+    color: var(--dropdown-bg);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.2),
+        4px 4px 8px rgba(0, 0, 0, 0.15),
+        8px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle:hover {
+    transform: rotate(360deg);
+    box-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.25),
+        6px 6px 12px rgba(0, 0, 0, 0.2),
+        12px 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Update existing component colors */
+.timer {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 160px;
+    font-weight: 550;
+    color: var(--text-primary);
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.2),
+        4px 4px 8px rgba(0, 0, 0, 0.2),
+        8px 8px 16px rgba(0, 0, 0, 0.2),
+        16px 16px 32px rgba(0, 0, 0, 0.15),
+        32px 32px 64px rgba(0, 0, 0, 0.1);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Add different shadow for dark mode */
+[data-theme="dark"] .timer {
+    text-shadow: 
+        2px 2px 4px rgba(255, 255, 255, 0.1),
+        4px 4px 8px rgba(255, 255, 255, 0.1),
+        8px 8px 16px rgba(255, 255, 255, 0.08),
+        16px 16px 32px rgba(255, 255, 255, 0.05),
+        32px 32px 50px rgba(255, 255, 255, 0.03);
+    color: #cbd5e0;  /* Slightly brighter than regular text but still muted */
+}
+
+.timer-type, .dropdown-button {
+    background-color: var(--button-primary);
+    color: var(--dropdown-bg);
+    box-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.2),
+        4px 4px 8px rgba(0, 0, 0, 0.15),
+        8px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--button-primary);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    z-index: 1;
+    margin-top: 4px;
+}
+
+.dropdown-content .interval {
+    background: none;
+    color: var(--dropdown-bg);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 10px;
+    min-width: 100%;
+    text-align: left;
+}
+
+.dropdown-content .interval:hover {
+    background-color: var(--button-hover);
+}
+
+.start-pause {
+    background-color: var(--timer-start);
+    box-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.2),
+        4px 4px 8px rgba(0, 0, 0, 0.15),
+        8px 8px 16px rgba(0, 0, 0, 0.1),
+        12px 12px 24px rgba(0, 0, 0, 0.05);
+}
+
+.start-pause.paused {
+    background-color: var(--timer-pause);
+}
+
+.start-pause:hover {
+    box-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.25),
+        6px 6px 12px rgba(0, 0, 0, 0.2),
+        12px 12px 24px rgba(0, 0, 0, 0.15),
+        16px 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+.start-pause.paused:hover {
+    /* remove background-color: var(--timer-pause-hover); */
+}
+
+.icon-button {
+    background-color: var(--button-primary);
+}
+
+.icon-button:hover {
+    /* remove background-color: var(--button-hover); */
+}
+
+/* Update todo list styles */
+#todo-input {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: none;
+    border-bottom: 2px solid rgba(113, 128, 150, 0.3);
+    border-radius: 0;
+    font-size: 14px;
+    background: transparent;
+    color: var(--text-primary);
+    transition: border-color 0.3s ease;
+}
+
+#todo-input:focus {
+    outline: none;
+    border-bottom-color: var(--button-primary);
+}
+
+#todo-input::placeholder {
+    color: var(--text-primary);
+    opacity: 0.6;
+}
+
+.add-todo {
+    background-color: var(--button-primary);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+    box-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.2),
+        4px 4px 8px rgba(0, 0, 0, 0.15),
+        8px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.add-todo:hover {
+    box-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.25),
+        6px 6px 12px rgba(0, 0, 0, 0.2),
+        12px 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    color: var(--text-primary);
+    font-size: 14px;
+    cursor: grab;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.drag-handle {
+    color: var(--text-primary);
+    opacity: 0.5;
+    cursor: grab;
+    user-select: none;
+    padding: 0 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    height: 14px;
+    justify-content: center;
+}
+
+.drag-handle::before,
+.drag-handle::after,
+.drag-handle span {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 1px;
+}
+
+.todo-item:hover .drag-handle {
+    opacity: 0.8;
+}
+
+.todo-item.dragging {
+    opacity: 0.5;
+    cursor: grabbing;
+    background-color: var(--dropdown-hover);
+    transform: scale(1.02);
+}
+
+.todo-item.drag-over {
+    border-top: 2px solid var(--button-primary);
+    padding-top: 6px; /* Compensate for border */
+}
+
+.todo-item.dragging .drag-handle {
+    opacity: 0;
+}
+
+.todo-checkbox {
+    border-color: var(--button-primary);
+}
+
+.todo-checkbox.checked {
+    background: var(--button-primary);
+}
+
+.todo-checkbox.checked::after {
+    content: '✓';
+    color: white;
+    font-size: 14px;
+}
+
+.todo-text {
+    flex-grow: 1;
+    color: var(--text-primary);
+}
+
+.todo-text.completed {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.custom-interval {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid rgba(113, 128, 150, 0.2);
+}
+
+.custom-interval input {
+    width: 100%;
+    padding: 6px 8px;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0;
+    font-size: 14px;
+    text-align: center;
+    -moz-appearance: textfield; /* Firefox */
+    background-color: var(--button-primary);
+    color: var(--dropdown-bg);
+    transition: border-color 0.3s ease;
+}
+
+.custom-interval input::placeholder {
+    color: var(--dropdown-bg);
+    opacity: 0.7;
+}
+
+/* Hide spinner buttons for Chrome, Safari, Edge, Opera */
+.custom-interval input::-webkit-outer-spin-button,
+.custom-interval input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.custom-interval input:focus {
+    outline: none;
+    border-bottom-color: var(--dropdown-bg);
+}
+
+.timer-container {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.timer-container > * + * {
+    margin-top: 20px;
+}
+
+button {
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.2),
+        4px 4px 8px rgba(0, 0, 0, 0.15),
+        8px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    box-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.25),
+        6px 6px 12px rgba(0, 0, 0, 0.2),
+        12px 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+    opacity: 0.9;
+}
+
+.top-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.timer-type-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.timer-type {
+    background-color: #718096;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.timer-type.active {
+    /* background-color: #2d3748; */
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-button {
+    background-color: #718096;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dropdown-button i {
+    transition: transform 0.3s ease;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--button-primary);
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    z-index: 1;
+    margin-top: 4px;
+}
+
+.dropdown-content.show {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-content .interval {
+    background: none;
+    color: var(--dropdown-bg);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 10px;
+    min-width: 100%;
+    text-align: left;
+}
+
+.dropdown-content .interval:hover {
+    background-color: var(--button-hover);
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.start-pause {
+    background-color: #48bb78;
+    min-width: 100px;
+    border-radius: 8px;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.start-pause.paused {
+    background-color: #e53e3e;
+}
+
+.start-pause:hover {
+    box-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.25),
+        6px 6px 12px rgba(0, 0, 0, 0.2),
+        12px 12px 24px rgba(0, 0, 0, 0.15),
+        16px 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+.start-pause.paused:hover {
+    /* remove background-color: var(--timer-pause-hover); */
+}
+
+.icon-button {
+    background-color: #718096;
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    color: white;
+}
+
+.icon-button:hover {
+    /* remove background-color: var(--button-hover); */
+}
+
+.icon-button i {
+    transition: transform 0.3s ease;
+}
+
+.icon-button:hover i {
+    transform: rotate(180deg);
+}
+
+.timer.running {
+    /* animation: timerPulse 2s infinite; <- remove this */
+}
+
+/* Todo List Styles */
+.todo-container {
+    margin-top: 40px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.todo-input-container {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+#todo-input {
+    flex-grow: 1;
+    padding: 8px 12px;
+    border: none;
+    border-bottom: 2px solid rgba(113, 128, 150, 0.3);
+    border-radius: 0;
+    font-size: 14px;
+    background: transparent;
+    color: var(--text-primary);
+    transition: border-color 0.3s ease;
+}
+
+#todo-input:focus {
+    outline: none;
+    border-bottom-color: var(--button-primary);
+}
+
+#todo-input::placeholder {
+    color: var(--text-primary);
+    opacity: 0.6;
+}
+
+.add-todo {
+    background-color: var(--button-primary);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+.add-todo:hover {
+    box-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.25),
+        6px 6px 12px rgba(0, 0, 0, 0.2),
+        12px 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+.todo-checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--button-primary);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.todo-checkbox.checked {
+    background: var(--button-primary);
+}
+
+.todo-checkbox.checked::after {
+    content: '✓';
+    color: white;
+    font-size: 14px;
+}
+
+.todo-text {
+    flex-grow: 1;
+    color: var(--text-primary);
+}
+
+.todo-text.completed {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.custom-interval {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid rgba(113, 128, 150, 0.2);
+}
+
+.custom-interval input {
+    width: 100%;
+    padding: 6px 8px;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0;
+    font-size: 14px;
+    text-align: center;
+    -moz-appearance: textfield; /* Firefox */
+    background-color: var(--button-primary);
+    color: var(--dropdown-bg);
+    transition: border-color 0.3s ease;
+}
+
+.custom-interval input::placeholder {
+    color: var(--dropdown-bg);
+    opacity: 0.7;
+}
+
+/* Hide spinner buttons for Chrome, Safari, Edge, Opera */
+.custom-interval input::-webkit-outer-spin-button,
+.custom-interval input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.custom-interval input:focus {
+    outline: none;
+    border-bottom-color: var(--dropdown-bg);
+}
+
+/* Dark mode shadows */
+[data-theme="dark"] button {
+    box-shadow: 
+        2px 2px 4px rgba(255, 255, 255, 0.1),
+        4px 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] button:hover {
+    box-shadow: 
+        3px 3px 6px rgba(255, 255, 255, 0.15),
+        6px 6px 12px rgba(255, 255, 255, 0.1),
+        0 0 16px rgba(255, 255, 255, 0.1);
+}
+
+/* Specific dark mode shadows for different button types */
+[data-theme="dark"] .theme-toggle {
+    box-shadow: 
+        2px 2px 4px rgba(255, 255, 255, 0.1),
+        4px 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+    transform: rotate(360deg);
+    box-shadow: 
+        3px 3px 6px rgba(255, 255, 255, 0.15),
+        6px 6px 12px rgba(255, 255, 255, 0.1),
+        0 0 16px rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .start-pause {
+    box-shadow: 
+        2px 2px 4px rgba(255, 255, 255, 0.1),
+        4px 4px 8px rgba(255, 255, 255, 0.05),
+        8px 8px 16px rgba(255, 255, 255, 0.03);
+}
+
+[data-theme="dark"] .start-pause:hover {
+    box-shadow: 
+        3px 3px 6px rgba(255, 255, 255, 0.15),
+        6px 6px 12px rgba(255, 255, 255, 0.1),
+        12px 12px 24px rgba(255, 255, 255, 0.05),
+        0 0 16px rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .dropdown-content {
+    box-shadow: 
+        2px 2px 4px rgba(255, 255, 255, 0.1),
+        4px 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+/* Additional dark mode text color adjustments */
+[data-theme="dark"] .timer {
+    color: #cbd5e0;  /* Slightly brighter than regular text but still muted */
+}
+
+[data-theme="dark"] .timer-type,
+[data-theme="dark"] .dropdown-button,
+[data-theme="dark"] .start-pause,
+[data-theme="dark"] .icon-button {
+    color: #cbd5e0;  /* Muted white for button text */
+}
+
+[data-theme="dark"] .todo-text {
+    color: #a0aec0;  /* Match the new text-primary color */
+}
+
+[data-theme="dark"] .todo-checkbox.checked::after {
+    color: #cbd5e0;  /* Muted white for checkmark */
+}
+
+[data-theme="dark"] #todo-input::placeholder {
+    color: #718096;  /* Darker gray for placeholder text */
+}
+
+/* Update dark mode text color for dropdown intervals */
+[data-theme="dark"] .dropdown-content .interval,
+[data-theme="dark"] .dropdown-button,
+[data-theme="dark"] .custom-interval input,
+[data-theme="dark"] .custom-interval input::placeholder {
+    color: #cbd5e0;  /* Match the timer's color in dark mode */
+}
+
+/* Update hover state text color */
+[data-theme="dark"] .dropdown-content .interval:hover {
+    background-color: var(--button-hover);
+    color: #cbd5e0;  /* Keep text color consistent on hover */
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .todo-item.dragging {
+    background-color: var(--button-hover);
+}
+
+[data-theme="dark"] .todo-item.drag-over {
+    border-top-color: var(--text-primary);
+}
+
+.delete-task {
+    opacity: 0;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 4px 8px;
+    transition: all 0.2s ease;
+}
+
+.todo-item:hover .delete-task {
+    opacity: 0.6;
+}
+
+.delete-task:hover {
+    opacity: 1;
+    color: #e53e3e; /* Red color for delete */
+}
+
+/* Dark mode adjustment */
+[data-theme="dark"] .delete-task:hover {
+    color: #fc8181; /* Lighter red for dark mode */
+}
+
+/* Add media queries for smaller screens */
+@media (max-width: 768px) {
+    .timer {
+        font-size: 120px; /* Smaller timer for mobile */
+    }
+    
+    .timer-container {
+        padding: 0 10px;
+    }
+    
+    .top-controls {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .timer {
+        font-size: 80px;
+    }
+}
+
+/* Add loading state styles */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+} 
