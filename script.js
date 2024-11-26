@@ -70,7 +70,7 @@ function toggleTimer() {
                     });
                 }
                 
-                alert('Time is up!');
+                alert('Time is Up!');
             }
         }, 1000);
     } else {
