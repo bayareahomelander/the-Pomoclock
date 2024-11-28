@@ -160,10 +160,14 @@ function switchTimerType(type) {
     
     document.querySelectorAll('.timer-type').forEach(btn => {
         btn.classList.remove('active');
-        if (btn.textContent.toLowerCase().includes(type)) {
-            btn.classList.add('active');
-        }
     });
+    
+    const activeButton = type === 'main' 
+        ? document.querySelector('.timer-type:first-child')
+        : document.querySelector('.timer-type:last-child');
+    if (activeButton) {
+        activeButton.classList.add('active');
+    }
     
     document.body.style.transition = 'background-color 0.3s ease';
     const bgColor = isDarkMode 
@@ -458,8 +462,7 @@ function addTodoFromData(taskData) {
     const deleteBtn = document.createElement('i');
     deleteBtn.className = 'fas fa-times delete-task';
     deleteBtn.onclick = function() {
-        li.remove();
-        saveTasks();
+        showDeleteConfirmation(li);
     };
     
     li.appendChild(dragHandle);
@@ -658,3 +661,35 @@ document.addEventListener('DOMContentLoaded', () => {
         e.stopPropagation();
     });
 });
+
+// Add this function to handle the delete confirmation
+function showDeleteConfirmation(taskElement) {
+    const modal = document.querySelector('.delete-confirm-modal');
+    modal.style.display = 'flex';
+
+    const handleDelete = (confirm) => {
+        if (confirm) {
+            taskElement.remove();
+            saveTasks();
+        }
+        modal.style.display = 'none';
+        
+        // Remove event listeners
+        modal.querySelector('.delete-confirm-yes').removeEventListener('click', deleteYes);
+        modal.querySelector('.delete-confirm-no').removeEventListener('click', deleteNo);
+        modal.removeEventListener('click', modalClick);
+    };
+
+    const deleteYes = () => handleDelete(true);
+    const deleteNo = () => handleDelete(false);
+    const modalClick = (e) => {
+        if (e.target === modal) {
+            handleDelete(false);
+        }
+    };
+
+    // Add event listeners
+    modal.querySelector('.delete-confirm-yes').addEventListener('click', deleteYes);
+    modal.querySelector('.delete-confirm-no').addEventListener('click', deleteNo);
+    modal.addEventListener('click', modalClick);
+}
