@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Allow: favicon.ico
 
 # Disallow access to development files
 Disallow: /.DS_Store
