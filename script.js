@@ -29,7 +29,7 @@ function setTimerDuration(minutes) {
         updateTimerDisplay();
         
         const currentDropdown = document.getElementById(`${currentTimerType}-intervals`);
-        currentDropdown.querySelector('.selected-time').textContent = `${minutes} min`;
+        currentDropdown.querySelector('.selected-time').textContent = `${minutes} minutes`;
         
         const dropdownContent = currentDropdown.querySelector('.dropdown-content');
         if (dropdownContent) {
