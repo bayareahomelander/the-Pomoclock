@@ -1,7 +1,5 @@
 User-agent: *
 Allow: /
-Allow: /index.html
-Allow: /sitemap.xml
 
 # Disallow access to development files
 Disallow: /.DS_Store
