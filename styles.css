@@ -64,16 +64,16 @@ body {
     justify-content: center;
     transition: all 0.3s ease;
     box-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.2),
-        4px 4px 8px rgba(0, 0, 0, 0.15),
-        8px 8px 16px rgba(0, 0, 0, 0.1);
+        1px 1px 3px rgba(0, 0, 0, 0.2),
+        3px 3px 3px rgba(0, 0, 0, 0.15),
+        5px 5px 3px rgba(0, 0, 0, 0.1);
 }
 
 .theme-toggle:hover {
     box-shadow: 
-        3px 3px 6px rgba(0, 0, 0, 0.25),
-        6px 6px 12px rgba(0, 0, 0, 0.2),
-        12px 12px 24px rgba(0, 0, 0, 0.15);
+        2px 2px 3px rgba(0, 0, 0, 0.25),
+        4px 4px 3px rgba(0, 0, 0, 0.2),
+        6px 6px 3px rgba(0, 0, 0, 0.15);
 }
 
 .timer {
@@ -107,9 +107,9 @@ body {
     background-color: var(--button-primary);
     color: var(--dropdown-bg);
     box-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.2),
-        4px 4px 8px rgba(0, 0, 0, 0.15),
-        8px 8px 16px rgba(0, 0, 0, 0.1);
+        1px 1px 3px rgba(0, 0, 0, 0.2),
+        3px 3px 3px rgba(0, 0, 0, 0.15),
+        5px 5px 3px rgba(0, 0, 0, 0.1);
 }
 
 .dropdown-content {
@@ -120,7 +120,7 @@ body {
     right: 0;
     background-color: var(--button-primary);
     border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     z-index: 1;
     margin-top: 4px;
@@ -141,24 +141,23 @@ body {
 }
 
 .start-pause {
-    background-color: var(--timer-start);
-    box-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.2),
-        4px 4px 8px rgba(0, 0, 0, 0.15),
-        8px 8px 16px rgba(0, 0, 0, 0.1),
-        12px 12px 24px rgba(0, 0, 0, 0.05);
+    background-color: #48bb78;
+    min-width: 100px;
+    border-radius: 8px;
+    color: white;
+    transition: all 0.2s ease;
 }
 
 .start-pause.paused {
-    background-color: var(--timer-pause);
+    background-color: #e53e3e;
 }
 
 .start-pause:hover {
     box-shadow: 
-        3px 3px 6px rgba(0, 0, 0, 0.25),
-        6px 6px 12px rgba(0, 0, 0, 0.2),
-        12px 12px 24px rgba(0, 0, 0, 0.15),
-        16px 16px 32px rgba(0, 0, 0, 0.1);
+        2px 2px 3px rgba(0, 0, 0, 0.25),
+        4px 4px 3px rgba(0, 0, 0, 0.2),
+        6px 6px 3px rgba(0, 0, 0, 0.15),
+        8px 8px 3px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -190,16 +189,16 @@ body {
     padding: 8px 16px;
     border-radius: 6px;
     box-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.2),
-        4px 4px 8px rgba(0, 0, 0, 0.15),
-        8px 8px 16px rgba(0, 0, 0, 0.1);
+        1px 1px 3px rgba(0, 0, 0, 0.2),
+        3px 3px 3px rgba(0, 0, 0, 0.15),
+        5px 5px 3px rgba(0, 0, 0, 0.1);
 }
 
 .add-todo:hover {
     box-shadow: 
-        3px 3px 6px rgba(0, 0, 0, 0.25),
-        6px 6px 12px rgba(0, 0, 0, 0.2),
-        12px 12px 24px rgba(0, 0, 0, 0.15);
+        2px 2px 3px rgba(0, 0, 0, 0.25),
+        4px 4px 3px rgba(0, 0, 0, 0.2),
+        6px 6px 3px rgba(0, 0, 0, 0.15);
 }
 
 .todo-list {
@@ -349,16 +348,16 @@ button {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.2),
-        4px 4px 8px rgba(0, 0, 0, 0.15),
-        8px 8px 16px rgba(0, 0, 0, 0.1);
+        1px 1px 3px rgba(0, 0, 0, 0.2),
+        3px 3px 3px rgba(0, 0, 0, 0.15),
+        5px 5px 3px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
     box-shadow: 
-        3px 3px 6px rgba(0, 0, 0, 0.25),
-        6px 6px 12px rgba(0, 0, 0, 0.2),
-        12px 12px 24px rgba(0, 0, 0, 0.15);
+        2px 2px 3px rgba(0, 0, 0, 0.25),
+        4px 4px 3px rgba(0, 0, 0, 0.2),
+        6px 6px 3px rgba(0, 0, 0, 0.15);
 }
 
 button:active {
@@ -383,6 +382,14 @@ button:active {
     color: var(--dropdown-bg);
     padding: 10px 20px;
     border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.timer-type:hover {
+    box-shadow: 
+        2px 2px 3px rgba(0, 0, 0, 0.25),
+        4px 4px 3px rgba(0, 0, 0, 0.2),
+        6px 6px 3px rgba(0, 0, 0, 0.15);
 }
 
 .dropdown {
@@ -412,7 +419,7 @@ button:active {
     right: 0;
     background-color: var(--button-primary);
     border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     z-index: 1;
     margin-top: 4px;
@@ -449,7 +456,7 @@ button:active {
     min-width: 100px;
     border-radius: 8px;
     color: white;
-    transition: background-color 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .start-pause.paused {
@@ -458,10 +465,10 @@ button:active {
 
 .start-pause:hover {
     box-shadow: 
-        3px 3px 6px rgba(0, 0, 0, 0.25),
-        6px 6px 12px rgba(0, 0, 0, 0.2),
-        12px 12px 24px rgba(0, 0, 0, 0.15),
-        16px 16px 32px rgba(0, 0, 0, 0.1);
+        2px 2px 3px rgba(0, 0, 0, 0.25),
+        4px 4px 3px rgba(0, 0, 0, 0.2),
+        6px 6px 3px rgba(0, 0, 0, 0.15),
+        8px 8px 3px rgba(0, 0, 0, 0.1);
 }
 
 .icon-button {
@@ -528,9 +535,9 @@ button:active {
 
 .add-todo:hover {
     box-shadow: 
-        3px 3px 6px rgba(0, 0, 0, 0.25),
-        6px 6px 12px rgba(0, 0, 0, 0.2),
-        12px 12px 24px rgba(0, 0, 0, 0.15);
+        2px 2px 3px rgba(0, 0, 0, 0.25),
+        4px 4px 3px rgba(0, 0, 0, 0.2),
+        6px 6px 3px rgba(0, 0, 0, 0.15);
 }
 
 .todo-list {
@@ -620,43 +627,44 @@ button:active {
 
 [data-theme="dark"] button {
     box-shadow: 
-        2px 2px 4px rgba(255, 255, 255, 0.1),
-        4px 4px 8px rgba(255, 255, 255, 0.05);
+        1px 1px 3px rgba(255, 255, 255, 0.1),
+        3px 3px 3px rgba(255, 255, 255, 0.05);
 }
 
 [data-theme="dark"] button:hover {
     box-shadow: 
-        3px 3px 6px rgba(255, 255, 255, 0.15),
-        6px 6px 12px rgba(255, 255, 255, 0.1),
-        0 0 16px rgba(255, 255, 255, 0.1);
+        2px 2px 3px rgba(255, 255, 255, 0.15),
+        4px 4px 3px rgba(255, 255, 255, 0.1),
+        6px 6px 3px rgba(255, 255, 255, 0.05);
 }
 
 
 [data-theme="dark"] .theme-toggle {
     box-shadow: 
-        2px 2px 4px rgba(255, 255, 255, 0.1),
-        4px 4px 8px rgba(255, 255, 255, 0.05);
+        1px 1px 3px rgba(255, 255, 255, 0.1),
+        3px 3px 3px rgba(255, 255, 255, 0.05);
 }
 
 [data-theme="dark"] .theme-toggle:hover {
     box-shadow: 
-        3px 3px 6px rgba(255, 255, 255, 0.15),
-        6px 6px 12px rgba(255, 255, 255, 0.1),
-        0 0 16px rgba(255, 255, 255, 0.1);
+        2px 2px 3px rgba(255, 255, 255, 0.15),
+        4px 4px 3px rgba(255, 255, 255, 0.1),
+        6px 6px 3px rgba(255, 255, 255, 0.05);
 }
 
 [data-theme="dark"] .start-pause {
     box-shadow: 
-        2px 2px 4px rgba(255, 255, 255, 0.1),
-        4px 4px 8px rgba(255, 255, 255, 0.05),
-        8px 8px 16px rgba(255, 255, 255, 0.03);
+        1px 1px 3px rgba(255, 255, 255, 0.1),
+        3px 3px 3px rgba(255, 255, 255, 0.05),
+        5px 5px 3px rgba(255, 255, 255, 0.03);
+    transition: all 0.2s ease;
 }
 
 [data-theme="dark"] .start-pause:hover {
     box-shadow: 
-        3px 3px 6px rgba(255, 255, 255, 0.15),
-        6px 6px 12px rgba(255, 255, 255, 0.1),
-        12px 12px 24px rgba(255, 255, 255, 0.05),
+        2px 2px 3px rgba(255, 255, 255, 0.15),
+        4px 4px 3px rgba(255, 255, 255, 0.1),
+        6px 6px 3px rgba(255, 255, 255, 0.05),
         0 0 16px rgba(255, 255, 255, 0.1);
 }
 
