@@ -178,7 +178,7 @@ function switchTimerType(type) {
     button.classList.remove('paused');
     
     const dropdown = document.getElementById(`${type}-intervals`);
-    dropdown.querySelector('.selected-time').textContent = `${currentInterval} min`;
+    dropdown.querySelector('.selected-time').textContent = `${currentInterval} minutes`;
 }
 
 // Toggles between light and dark themes
