@@ -293,17 +293,23 @@ body {
 }
 
 .custom-interval input {
-    width: 100%;
-    padding: 6px 8px;
+    flex: 1;
+    padding: 0.5rem;
     border: none;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 2px solid var(--border-color);
     border-radius: 0;
-    font-size: 14px;
-    text-align: center;
-    -moz-appearance: textfield; 
-    background-color: var(--button-primary);
-    color: var(--dropdown-bg);
+    background-color: transparent;
+    color: var(--text-primary);
     transition: border-color 0.3s ease;
+}
+
+.custom-interval input:focus {
+    outline: none;
+    border-bottom-color: var(--button-primary);
+}
+
+.custom-interval input:hover {
+    border-bottom-color: var(--button-hover);
 }
 
 .custom-interval input::placeholder {
@@ -613,17 +619,23 @@ button:active {
 }
 
 .custom-interval input {
-    width: 100%;
-    padding: 6px 8px;
+    flex: 1;
+    padding: 0.5rem;
     border: none;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 2px solid var(--border-color);
     border-radius: 0;
-    font-size: 14px;
-    text-align: center;
-    -moz-appearance: textfield; 
-    background-color: var(--button-primary);
-    color: var(--dropdown-bg);
+    background-color: transparent;
+    color: var(--text-primary);
     transition: border-color 0.3s ease;
+}
+
+.custom-interval input:focus {
+    outline: none;
+    border-bottom-color: var(--button-primary);
+}
+
+.custom-interval input:hover {
+    border-bottom-color: var(--button-hover);
 }
 
 .custom-interval input::placeholder {
@@ -1059,7 +1071,6 @@ button:active {
 }
 
 .interval-content {
-    background-color: var(--bg-primary);
     padding: 2rem;
     border-radius: 12px;
     width: 90%;
@@ -1105,10 +1116,21 @@ button:active {
 .custom-interval-input input {
     flex: 1;
     padding: 0.5rem;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    background-color: var(--bg-primary);
+    border: none;
+    border-bottom: 2px solid var(--border-color);
+    border-radius: 0;
+    background-color: transparent;
     color: var(--text-primary);
+    transition: border-color 0.3s ease;
+}
+
+.custom-interval-input input:focus {
+    outline: none;
+    border-bottom-color: var(--button-primary);
+}
+
+.custom-interval-input input:hover {
+    border-bottom-color: var(--button-hover);
 }
 
 .apply-custom {
@@ -1121,7 +1143,7 @@ button:active {
 }
 
 [data-theme="dark"] .interval-content {
-    background-color: var(--bg-primary);
+    background-color: var(--bg-break);
 }
 
 [data-theme="dark"] .interval-option {

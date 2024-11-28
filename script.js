@@ -175,6 +175,11 @@ function switchTimerType(type) {
         : (type === 'main' ? '#e6eeff' : '#e6fff0');
     document.body.style.backgroundColor = bgColor;
     
+    const intervalContent = document.querySelector('.interval-content');
+    if (intervalContent) {
+        intervalContent.style.backgroundColor = bgColor;
+    }
+    
     document.getElementById('main-intervals').style.display = 
         type === 'main' ? 'inline-block' : 'none';
     document.getElementById('break-intervals').style.display = 
@@ -208,6 +213,11 @@ function toggleTheme() {
         ? (currentTimerType === 'main' ? '#1a202c' : '#1c2a25')
         : (currentTimerType === 'main' ? '#e6eeff' : '#e6fff0');
     document.body.style.backgroundColor = bgColor;
+    
+    const intervalContent = document.querySelector('.interval-content');
+    if (intervalContent) {
+        intervalContent.style.backgroundColor = bgColor;
+    }
 
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
 }
