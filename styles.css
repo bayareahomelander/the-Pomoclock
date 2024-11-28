@@ -556,6 +556,10 @@ button:active {
     color: white;
     padding: 8px 16px;
     border-radius: 6px;
+    box-shadow: 
+        1px 1px 3px rgba(0, 0, 0, 0.2),
+        3px 3px 3px rgba(0, 0, 0, 0.15),
+        5px 5px 3px rgba(0, 0, 0, 0.1);
 }
 
 .add-todo:hover {
@@ -1087,7 +1091,7 @@ button:active {
 
 .interval-option {
     background-color: var(--button-primary);
-    color: var(--text-primary);
+    color: var(--dropdown-bg);
     padding: 1rem;
     border: none;
     border-radius: 8px;
@@ -1181,7 +1185,7 @@ button:active {
 
 .interval-option {
     background-color: var(--button-primary);
-    color: var(--text-primary);
+    color: var(--dropdown-bg);
     padding: 1rem;
     border: none;
     border-radius: 8px;
@@ -1206,7 +1210,7 @@ button:active {
     margin: 0 auto;
     padding: 0.8rem 1.5rem;
     background-color: var(--button-primary);
-    color: var(--text-primary);
+    color: var(--dropdown-bg);
     border: none;
     border-radius: 6px;
     cursor: pointer;

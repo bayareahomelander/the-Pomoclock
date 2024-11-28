@@ -229,6 +229,17 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.theme-toggle i').className = 'fas fa-sun';
         const bgColor = currentTimerType === 'main' ? '#1a202c' : '#1c2a25';
         document.body.style.backgroundColor = bgColor;
+        
+        const intervalContent = document.querySelector('.interval-content');
+        if (intervalContent) {
+            intervalContent.style.backgroundColor = bgColor;
+        }
+    } else {
+        const bgColor = currentTimerType === 'main' ? '#e6eeff' : '#e6fff0';
+        const intervalContent = document.querySelector('.interval-content');
+        if (intervalContent) {
+            intervalContent.style.backgroundColor = bgColor;
+        }
     }
     
     if ("Notification" in window) {
