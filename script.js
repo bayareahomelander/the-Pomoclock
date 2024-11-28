@@ -178,6 +178,10 @@ function switchTimerType(type) {
     const intervalContent = document.querySelector('.interval-content');
     if (intervalContent) {
         intervalContent.style.backgroundColor = bgColor;
+        const buttons = intervalContent.querySelectorAll('.interval-option, .close-modal');
+        buttons.forEach(button => {
+            button.style.backgroundColor = (!isDarkMode && type === 'break') ? '#67bf98' : '';
+        });
     }
     
     document.getElementById('main-intervals').style.display = 
@@ -217,6 +221,10 @@ function toggleTheme() {
     const intervalContent = document.querySelector('.interval-content');
     if (intervalContent) {
         intervalContent.style.backgroundColor = bgColor;
+        const buttons = intervalContent.querySelectorAll('.interval-option, .close-modal');
+        buttons.forEach(button => {
+            button.style.backgroundColor = (!isDarkMode && currentTimerType === 'break') ? '#67bf98' : '';
+        });
     }
 
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
@@ -233,12 +241,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const intervalContent = document.querySelector('.interval-content');
         if (intervalContent) {
             intervalContent.style.backgroundColor = bgColor;
+            const buttons = intervalContent.querySelectorAll('.interval-option, .close-modal');
+            buttons.forEach(button => {
+                button.style.backgroundColor = (!isDarkMode && currentTimerType === 'break') ? '#67bf98' : '';
+            });
         }
     } else {
         const bgColor = currentTimerType === 'main' ? '#e6eeff' : '#e6fff0';
         const intervalContent = document.querySelector('.interval-content');
         if (intervalContent) {
             intervalContent.style.backgroundColor = bgColor;
+            const buttons = intervalContent.querySelectorAll('.interval-option, .close-modal');
+            buttons.forEach(button => {
+                button.style.backgroundColor = (!isDarkMode && currentTimerType === 'break') ? '#67bf98' : '';
+            });
         }
     }
     
