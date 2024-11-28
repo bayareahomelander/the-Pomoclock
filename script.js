@@ -13,6 +13,7 @@ let analytics = {
     currentStreak: 0
 };
 
+// Updates the timer display with current minutes and seconds
 function updateTimerDisplay() {
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
@@ -20,6 +21,7 @@ function updateTimerDisplay() {
         `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 }
 
+// Sets a new duration for the timer when not running
 function setTimerDuration(minutes) {
     if (!isRunning) {
         currentInterval = minutes;
@@ -30,11 +32,19 @@ function setTimerDuration(minutes) {
         currentDropdown.querySelector('.selected-time').textContent = `${minutes} min`;
         
         const dropdownContent = currentDropdown.querySelector('.dropdown-content');
-        dropdownContent.classList.remove('show');
-        currentDropdown.querySelector('.dropdown-button i').style.transform = 'rotate(0)';
+        if (dropdownContent) {
+            dropdownContent.classList.remove('show');
+            currentDropdown.querySelector('.dropdown-button i').style.transform = 'rotate(0)';
+        }
+        
+        const intervalModal = document.querySelector('.interval-modal');
+        if (intervalModal) {
+            intervalModal.style.display = 'none';
+        }
     }
 }
 
+// Requests permission for browser notifications
 function requestNotificationPermission() {
     if (!("Notification" in window)) {
         console.log("This browser does not support notifications");
@@ -46,13 +56,16 @@ function requestNotificationPermission() {
     });
 }
 
+// Handles starting, pausing, and completing timer cycles
 function toggleTimer() {
     const button = document.querySelector('.start-pause');
+    const skipButton = document.querySelector('.skip-session');
     
     if (!isRunning) {
         isRunning = true;
         button.textContent = 'Pause';
         button.classList.add('paused');
+        
         timer = setInterval(() => {
             if (timeLeft > 0) {
                 timeLeft--;
@@ -104,6 +117,7 @@ function toggleTimer() {
     }
 }
 
+// Resets timer to initial state
 function resetTimer() {
     clearInterval(timer);
     isRunning = false;
@@ -111,17 +125,31 @@ function resetTimer() {
     updateTimerDisplay();
     
     const button = document.querySelector('.start-pause');
+    const skipButton = document.querySelector('.skip-session');
     const timerDisplay = document.getElementById('timer');
+    
     button.textContent = 'Start';
     button.classList.remove('paused');
     timerDisplay.classList.remove('running');
+    
+    if (skipButton) {
+        skipButton.style.display = 'block';
+        skipButton.title = currentTimerType === 'main' ? 'Skip to break' : 'Skip to focus';
+    }
 }
 
+// Switches between focus and break sessions
 function switchTimerType(type) {
     clearInterval(timer);
     isRunning = false;
     
     currentTimerType = type;
+    
+    const skipButton = document.querySelector('.skip-session');
+    if (skipButton) {
+        skipButton.style.display = 'block';
+        skipButton.title = type === 'main' ? 'Skip to break' : 'Skip to focus';
+    }
     
     document.querySelectorAll('.timer-type').forEach(btn => {
         btn.classList.remove('active');
@@ -153,6 +181,7 @@ function switchTimerType(type) {
     dropdown.querySelector('.selected-time').textContent = `${currentInterval} min`;
 }
 
+// Toggles between light and dark themes
 function toggleTheme() {
     isDarkMode = !isDarkMode;
     document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
@@ -193,8 +222,20 @@ document.addEventListener('DOMContentLoaded', () => {
             addTodo();
         }
     });
+    
+    const buttonsContainer = document.querySelector('.buttons');
+    const resetButton = document.querySelector('.icon-button');
+    
+    const skipButton = document.createElement('button');
+    skipButton.className = 'icon-button skip-session';
+    skipButton.innerHTML = '<i class="fas fa-forward"></i>';
+    skipButton.title = 'Skip to break';
+    skipButton.onclick = skipSession;
+    
+    buttonsContainer.insertBefore(skipButton, resetButton);
 });
 
+// Applies custom interval duration from user input
 function applyCustomInterval(input) {
     const minutes = parseInt(input.value);
     if (minutes && minutes > 0 && minutes <= 120) {
@@ -205,6 +246,7 @@ function applyCustomInterval(input) {
     }
 }
 
+// Adds a new todo item to the list
 function addTodo() {
     const input = document.getElementById('todo-input');
     const text = input.value.trim();
@@ -219,10 +261,12 @@ function addTodo() {
     }
 }
 
+// Handles the start of drag operations for todo items
 function handleDragStart(e) {
     e.target.classList.add('dragging');
 }
 
+// Handles the end of drag operations for todo items
 function handleDragEnd(e) {
     e.target.classList.remove('dragging');
     document.querySelectorAll('.todo-item').forEach(item => {
@@ -231,6 +275,7 @@ function handleDragEnd(e) {
     saveTasks();
 }
 
+// Handles the dragging over state for todo items
 function handleDragOver(e) {
     e.preventDefault();
     const draggingItem = document.querySelector('.dragging');
@@ -260,6 +305,7 @@ function handleDragOver(e) {
     }
 }
 
+// Handles the drop event for todo items
 function handleDrop(e) {
     e.preventDefault();
     document.querySelectorAll('.todo-item').forEach(item => {
@@ -287,6 +333,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Sets up dropdown menus for timer intervals
 function setupDropdowns() {
     const dropdowns = document.querySelectorAll('.dropdown');
     
@@ -333,6 +380,7 @@ function setupDropdowns() {
     });
 }
 
+// Saves todo items to local storage
 function saveTasks() {
     try {
         const todoList = document.getElementById('todo-list');
@@ -351,6 +399,7 @@ function saveTasks() {
     }
 }
 
+// Loads todo items from local storage
 function loadTasks() {
     const savedTasks = localStorage.getItem('todoTasks');
     if (savedTasks) {
@@ -361,6 +410,7 @@ function loadTasks() {
     }
 }
 
+// Creates and adds a new todo item from data
 function addTodoFromData(taskData) {
     const todoList = document.getElementById('todo-list');
     const li = document.createElement('li');
@@ -414,18 +464,21 @@ function addTodoFromData(taskData) {
     todoList.appendChild(li);
 }
 
+// Sanitizes user input to prevent XSS
 function sanitizeInput(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
 }
 
+// Checks if local storage limit is reached
 function checkStorageLimit() {
     const totalSize = new Blob([localStorage.getItem('todoTasks')]).size;
     const limit = 5 * 1024 * 1024;
     return totalSize < limit;
 } 
 
+// Loads analytics data from local storage
 function loadAnalytics() {
     const savedAnalytics = localStorage.getItem('pomoAnalytics');
     if (savedAnalytics) {
@@ -434,11 +487,13 @@ function loadAnalytics() {
     }
 }
 
+// Saves analytics data to local storage
 function saveAnalytics() {
     localStorage.setItem('pomoAnalytics', JSON.stringify(analytics));
     updateAnalyticsDisplay();
 }
 
+// Updates the analytics display in the modal
 function updateAnalyticsDisplay() {
     document.getElementById('totalFocusSessions').textContent = analytics.focusSessions;
     document.getElementById('totalFocusMinutes').textContent = analytics.focusMinutes;
@@ -446,6 +501,7 @@ function updateAnalyticsDisplay() {
     document.getElementById('currentStreak').textContent = analytics.currentStreak;
 }
 
+// Toggles the analytics modal visibility
 function toggleAnalytics() {
     const modal = document.querySelector('.analytics-modal');
     if (modal.style.display === 'flex') {
@@ -473,6 +529,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Toggles the interval selection modal visibility
 function toggleIntervalModal() {
     const modal = document.querySelector('.interval-modal');
     if (modal.style.display === 'flex') {
@@ -483,6 +540,7 @@ function toggleIntervalModal() {
     }
 }
 
+// Updates available interval options based on session type
 function updateIntervalOptions() {
     const modal = document.querySelector('.interval-modal');
     const options = modal.querySelectorAll('.interval-option');
@@ -527,21 +585,16 @@ document.addEventListener('DOMContentLoaded', () => {
         option.addEventListener('click', () => {
             const minutes = parseInt(option.dataset.minutes);
             setTimerDuration(minutes);
-            intervalModal.style.display = 'none';
         });
     });
     
     const customInput = document.querySelector('.custom-interval-input input');
-    
     customInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             const minutes = parseInt(customInput.value);
             if (minutes && minutes > 0 && minutes <= 120) {
                 setTimerDuration(minutes);
                 customInput.value = '';
-                
-                const intervalModal = document.querySelector('.interval-modal');
-                intervalModal.style.display = 'none';
             } else {
                 alert('Please enter a valid time between 1 and 120 minutes.');
             }
@@ -553,4 +606,19 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.interval-modal').style.display = 'none';
         });
     });
-}); 
+});
+
+// Handles skipping current session and updates analytics
+function skipSession() {
+    if (currentTimerType === 'main') {
+        const minutesSpent = (currentInterval * 60 - timeLeft) / 60;
+        if (minutesSpent > 0) {
+            analytics.focusMinutes += Math.round(minutesSpent);
+            saveAnalytics();
+        }
+    }
+    
+    clearInterval(timer);
+    isRunning = false;
+    switchTimerType(currentTimerType === 'main' ? 'break' : 'main');
+}

@@ -1,5 +1,5 @@
 :root {
-    /* Light theme colors */
+    
     --bg-primary: #e6eeff;
     --bg-break: #e6fff0;
     --text-primary: #2d3748;
@@ -15,10 +15,9 @@
 }
 
 [data-theme="dark"] {
-    /* Dark theme colors - updating text colors to be more muted */
     --bg-primary: #1a202c;
     --bg-break: #1c2a25;
-    --text-primary: #a0aec0;  /* Changed from #e2e8f0 to a more muted gray */
+    --text-primary: #a0aec0;
     --button-primary: #4a5568;
     --button-hover: #2d3748;
     --timer-start: #2f855a;
@@ -27,7 +26,7 @@
     --timer-pause-hover: #9b2c2c;
     --dropdown-bg: #2d3748;
     --dropdown-hover: #4a5568;
-    --border-color: rgba(160, 174, 192, 0.3);  /* Updated to match new text color */
+    --border-color: rgba(160, 174, 192, 0.3);
 }
 
 body {
@@ -45,7 +44,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Theme toggle button */
+
 .theme-toggle {
     position: fixed;
     top: 20px;
@@ -74,7 +73,6 @@ body {
         12px 12px 24px rgba(0, 0, 0, 0.15);
 }
 
-/* Update existing component colors */
 .timer {
     font-family: 'Courier New', monospace;
     font-size: 160px;
@@ -91,7 +89,7 @@ body {
     text-align: center;
 }
 
-/* Add different shadow for dark mode */
+
 [data-theme="dark"] .timer {
     text-shadow: 
         2px 2px 4px rgba(255, 255, 255, 0.1),
@@ -99,7 +97,7 @@ body {
         8px 8px 16px rgba(255, 255, 255, 0.08),
         16px 16px 32px rgba(255, 255, 255, 0.05),
         32px 32px 50px rgba(255, 255, 255, 0.03);
-    color: #cbd5e0;  /* Slightly brighter than regular text but still muted */
+    color: #cbd5e0;
 }
 
 .timer-type, .dropdown-button {
@@ -160,7 +158,7 @@ body {
         16px 16px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Update todo list styles */
+
 #todo-input {
     flex-grow: 1;
     padding: 8px 12px;
@@ -256,7 +254,7 @@ body {
 
 .todo-item.drag-over {
     border-top: 2px solid var(--button-primary);
-    padding-top: 6px; /* Compensate for border */
+    padding-top: 6px;
 }
 
 .todo-item.dragging .drag-handle {
@@ -301,7 +299,7 @@ body {
     border-radius: 0;
     font-size: 14px;
     text-align: center;
-    -moz-appearance: textfield; /* Firefox */
+    -moz-appearance: textfield; 
     background-color: var(--button-primary);
     color: var(--dropdown-bg);
     transition: border-color 0.3s ease;
@@ -312,7 +310,7 @@ body {
     opacity: 0.7;
 }
 
-/* Hide spinner buttons for Chrome, Safari, Edge, Opera */
+
 .custom-interval input::-webkit-outer-spin-button,
 .custom-interval input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -437,6 +435,7 @@ button:active {
     display: flex;
     gap: 10px;
     justify-content: center;
+    align-items: center;
 }
 
 .start-pause {
@@ -475,7 +474,7 @@ button:active {
 .icon-button:hover i {
     transform: rotate(180deg);
 }
-/* Todo List Styles */
+
 .todo-container {
     margin-top: 40px;
     width: 100%;
@@ -585,7 +584,7 @@ button:active {
     border-radius: 0;
     font-size: 14px;
     text-align: center;
-    -moz-appearance: textfield; /* Firefox */
+    -moz-appearance: textfield; 
     background-color: var(--button-primary);
     color: var(--dropdown-bg);
     transition: border-color 0.3s ease;
@@ -596,7 +595,7 @@ button:active {
     opacity: 0.7;
 }
 
-/* Hide spinner buttons for Chrome, Safari, Edge, Opera */
+
 .custom-interval input::-webkit-outer-spin-button,
 .custom-interval input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -608,7 +607,7 @@ button:active {
     border-bottom-color: var(--dropdown-bg);
 }
 
-/* Dark mode shadows */
+
 [data-theme="dark"] button {
     box-shadow: 
         2px 2px 4px rgba(255, 255, 255, 0.1),
@@ -622,7 +621,7 @@ button:active {
         0 0 16px rgba(255, 255, 255, 0.1);
 }
 
-/* Specific dark mode shadows for different button types */
+
 [data-theme="dark"] .theme-toggle {
     box-shadow: 
         2px 2px 4px rgba(255, 255, 255, 0.1),
@@ -657,45 +656,45 @@ button:active {
         4px 4px 8px rgba(255, 255, 255, 0.05);
 }
 
-/* Additional dark mode text color adjustments */
+
 [data-theme="dark"] .timer {
-    color: #cbd5e0;  /* Slightly brighter than regular text but still muted */
+    color: #cbd5e0;  
 }
 
 [data-theme="dark"] .timer-type,
 [data-theme="dark"] .dropdown-button,
 [data-theme="dark"] .start-pause,
 [data-theme="dark"] .icon-button {
-    color: #cbd5e0;  /* Muted white for button text */
+    color: #cbd5e0;  
 }
 
 [data-theme="dark"] .todo-text {
-    color: #a0aec0;  /* Match the new text-primary color */
+    color: #a0aec0;  
 }
 
 [data-theme="dark"] .todo-checkbox.checked::after {
-    color: #cbd5e0;  /* Muted white for checkmark */
+    color: #cbd5e0;  
 }
 
 [data-theme="dark"] #todo-input::placeholder {
-    color: #718096;  /* Darker gray for placeholder text */
+    color: #718096;  
 }
 
-/* Update dark mode text color for dropdown intervals */
+
 [data-theme="dark"] .dropdown-content .interval,
 [data-theme="dark"] .dropdown-button,
 [data-theme="dark"] .custom-interval input,
 [data-theme="dark"] .custom-interval input::placeholder {
-    color: #cbd5e0;  /* Match the timer's color in dark mode */
+    color: #cbd5e0;  
 }
 
-/* Update hover state text color */
+
 [data-theme="dark"] .dropdown-content .interval:hover {
     background-color: var(--button-hover);
-    color: #cbd5e0;  /* Keep text color consistent on hover */
+    color: #cbd5e0;  
 }
 
-/* Dark mode adjustments */
+
 [data-theme="dark"] .todo-item.dragging {
     background-color: var(--button-hover);
 }
@@ -718,15 +717,15 @@ button:active {
 
 .delete-task:hover {
     opacity: 1;
-    color: #e53e3e; /* Red color for delete */
+    color: #e53e3e; 
 }
 
-/* Dark mode adjustment */
+
 [data-theme="dark"] .delete-task:hover {
-    color: #fc8181; /* Lighter red for dark mode */
+    color: #fc8181; 
 }
 
-/* Add media queries for smaller screens */
+
 @media (max-width: 768px) {
     .timer {
         font-size: 120px;
@@ -796,13 +795,12 @@ button:active {
     }
 }
 
-/* Add loading state styles */
+
 .loading {
     opacity: 0.7;
     pointer-events: none;
 }
 
-/* Add this to your existing CSS */
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -815,11 +813,11 @@ button:active {
     border: 0;
 }
 
-/* Analytics Toggle Button */
+
 .analytics-toggle {
     position: fixed;
     top: 20px;
-    right: 70px; /* Position it next to theme toggle */
+    right: 70px; 
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -841,7 +839,7 @@ button:active {
     transform: scale(1.1);
 }
 
-/* Analytics Modal */
+
 .analytics-modal {
     display: none;
     position: fixed;
@@ -915,7 +913,6 @@ button:active {
     cursor: pointer;
 }
 
-/* Dark mode adjustments */
 [data-theme="dark"] .analytics-content {
     background-color: var(--bg-primary);
 }
@@ -936,7 +933,7 @@ button:active {
         16px 16px 32px rgba(255, 255, 255, 0.05);
 }
 
-/* Interval Selector Styles */
+
 .interval-button {
     background-color: var(--button-primary);
     color: var(--dropdown-bg);
@@ -960,7 +957,6 @@ button:active {
         12px 12px 24px rgba(0, 0, 0, 0.1);
 }
 
-/* Dark mode adjustments for interval button */
 [data-theme="dark"] .interval-button {
     background-color: var(--button-primary);
     color: #cbd5e0;
@@ -976,7 +972,6 @@ button:active {
         0 0 16px rgba(255, 255, 255, 0.1);
 }
 
-/* Interval Modal */
 .interval-modal {
     display: none;
     position: fixed;
@@ -1052,7 +1047,6 @@ button:active {
     cursor: pointer;
 }
 
-/* Dark mode adjustments */
 [data-theme="dark"] .interval-content {
     background-color: var(--bg-primary);
 }
@@ -1085,7 +1079,6 @@ button:active {
         12px 12px 24px rgba(255, 255, 255, 0.05);
 }
 
-/* Update interval modal styles */
 .interval-content h2 {
     color: var(--text-primary);
     margin-bottom: 1rem;
@@ -1112,7 +1105,7 @@ button:active {
         12px 12px 24px rgba(0, 0, 0, 0.1);
 }
 
-/* Update Close button styles */
+
 .interval-modal .close-modal {
     display: block;
     margin: 0 auto;
@@ -1135,7 +1128,7 @@ button:active {
         12px 12px 24px rgba(0, 0, 0, 0.1);
 }
 
-/* Dark mode adjustments */
+
 [data-theme="dark"] .interval-option {
     color: var(--text-primary);
     box-shadow: 
@@ -1171,5 +1164,102 @@ button:active {
 }
 
 .custom-interval-input input {
-    -moz-appearance: textfield; /* For Firefox */
+    -moz-appearance: textfield;
+}
+
+.skip-session {
+    background-color: #718096; 
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+    color: white;
+}
+
+.skip-session:hover {
+    background-color: #4a5568;
+}
+
+
+[data-theme="dark"] .skip-session {
+    background-color: var(--button-primary);
+    color: #cbd5e0;
+}
+
+[data-theme="dark"] .skip-session:hover {
+    background-color: var(--button-hover);
+}
+
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+[data-theme="dark"] .icon-button {
+    background-color: var(--button-primary);
+    color: #cbd5e0;
+}
+
+[data-theme="dark"] .icon-button:hover {
+    background-color: var(--button-hover);
+}
+
+
+[data-theme="dark"] .skip-session {
+    background-color: var(--button-primary);
+    color: #cbd5e0;
+}
+
+[data-theme="dark"] .skip-session:hover {
+    background-color: var(--button-hover);
+}
+
+
+.github-link {
+    position: fixed;
+    top: 20px;
+    right: 120px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--button-primary);
+    color: var(--dropdown-bg);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.2),
+        4px 4px 8px rgba(0, 0, 0, 0.15),
+        8px 8px 16px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+.github-link:hover {
+    transform: scale(1.1);
+    box-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.25),
+        6px 6px 12px rgba(0, 0, 0, 0.2),
+        12px 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .github-link {
+    background-color: var(--button-primary);
+    color: #cbd5e0;
+    box-shadow: 
+        2px 2px 4px rgba(255, 255, 255, 0.1),
+        4px 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .github-link:hover {
+    box-shadow: 
+        3px 3px 6px rgba(255, 255, 255, 0.15),
+        6px 6px 12px rgba(255, 255, 255, 0.1),
+        0 0 16px rgba(255, 255, 255, 0.1);
 }
