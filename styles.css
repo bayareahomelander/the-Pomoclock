@@ -1538,3 +1538,56 @@ button:active {
 [data-theme="dark"] .delete-confirm-content {
     background-color: var(--bg-primary);
 }
+
+.interval-toggle {
+    position: fixed;
+    top: 20px;
+    right: 220px; /* Adjust based on other icons' positions */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--button-primary);
+    color: var(--dropdown-bg);
+    border: none;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 
+        1px 1px 3px rgba(0, 0, 0, 0.2),
+        3px 3px 3px rgba(0, 0, 0, 0.15),
+        5px 5px 3px rgba(0, 0, 0, 0.1);
+}
+
+.interval-toggle:hover {
+    box-shadow: 
+        2px 2px 3px rgba(0, 0, 0, 0.25),
+        4px 4px 3px rgba(0, 0, 0, 0.2),
+        6px 6px 3px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .interval-toggle {
+    background-color: var(--button-primary);
+    color: #cbd5e0;
+    box-shadow: 
+        2px 2px 4px rgba(255, 255, 255, 0.1),
+        4px 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .interval-toggle:hover {
+    box-shadow: 
+        3px 3px 6px rgba(255, 255, 255, 0.15),
+        6px 6px 12px rgba(255, 255, 255, 0.1),
+        0 0 16px rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .interval-button {
+        display: none; /* Hide the regular interval button */
+    }
+    
+    .interval-toggle {
+        display: flex; /* Show the icon button */
+    }
+}

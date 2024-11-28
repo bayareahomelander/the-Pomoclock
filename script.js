@@ -583,12 +583,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Toggles the interval selection modal visibility
 function toggleIntervalModal() {
     const modal = document.querySelector('.interval-modal');
-    if (modal.style.display === 'flex') {
-        modal.style.display = 'none';
-    } else {
-        updateIntervalOptions();
-        modal.style.display = 'flex';
-    }
+    modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
 }
 
 // Updates available interval options based on session type
