@@ -12,6 +12,8 @@ let analytics = {
     lastSession: null,
     currentStreak: 0
 };
+let lastFocusInterval = 25;
+let lastBreakInterval = 5;
 
 // Updates the timer display with current minutes and seconds
 function updateTimerDisplay() {
@@ -25,6 +27,11 @@ function updateTimerDisplay() {
 function setTimerDuration(minutes) {
     if (!isRunning) {
         currentInterval = minutes;
+        if (currentTimerType === 'main') {
+            lastFocusInterval = minutes;
+        } else {
+            lastBreakInterval = minutes;
+        }
         timeLeft = minutes * 60;
         updateTimerDisplay();
         
@@ -169,7 +176,11 @@ function switchTimerType(type) {
     document.getElementById('break-intervals').style.display = 
         type === 'break' ? 'inline-block' : 'none';
     
-    currentInterval = type === 'main' ? 25 : 5;
+    if (type === 'main') {
+        currentInterval = lastFocusInterval;
+    } else {
+        currentInterval = lastBreakInterval;
+    }
     timeLeft = currentInterval * 60;
     updateTimerDisplay();
     
