@@ -528,4 +528,96 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // ... rest of your existing code ...
+});
+
+// Add these functions
+function toggleIntervalModal() {
+    const modal = document.querySelector('.interval-modal');
+    if (modal.style.display === 'flex') {
+        modal.style.display = 'none';
+    } else {
+        updateIntervalOptions();
+        modal.style.display = 'flex';
+    }
+}
+
+function updateIntervalOptions() {
+    const modal = document.querySelector('.interval-modal');
+    const options = modal.querySelectorAll('.interval-option');
+    
+    // Show/hide options based on timer type
+    if (currentTimerType === 'break') {
+        options.forEach(option => {
+            const minutes = parseInt(option.dataset.minutes);
+            if (minutes === 5 || minutes === 15) {
+                option.style.display = 'block';
+            } else {
+                option.style.display = 'none';
+            }
+        });
+    } else {
+        options.forEach(option => {
+            option.style.display = 'block';
+        });
+    }
+}
+
+// Add to your DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', () => {
+    // ... existing code ...
+
+    // Set up interval modal events
+    const intervalButtons = document.querySelectorAll('.interval-button');
+    const intervalModal = document.querySelector('.interval-modal');
+    const intervalContent = document.querySelector('.interval-content');
+    
+    intervalButtons.forEach(button => {
+        button.addEventListener('click', toggleIntervalModal);
+    });
+    
+    // Close modal when clicking outside
+    intervalModal.addEventListener('click', (e) => {
+        if (e.target === intervalModal) {
+            intervalModal.style.display = 'none';
+        }
+    });
+    
+    // Prevent clicks inside modal from closing it
+    intervalContent.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+    
+    // Set up interval options
+    const intervalOptions = document.querySelectorAll('.interval-option');
+    intervalOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            const minutes = parseInt(option.dataset.minutes);
+            setTimerDuration(minutes);
+            intervalModal.style.display = 'none';
+        });
+    });
+    
+    // Set up custom interval
+    const customInput = document.querySelector('.custom-interval-input input');
+    
+    // Remove the Apply button setup and update the Enter key handler
+    customInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            const minutes = parseInt(customInput.value);
+            if (minutes && minutes > 0 && minutes <= 120) {
+                setTimerDuration(minutes);
+                const intervalModal = document.querySelector('.interval-modal');
+                intervalModal.style.display = 'none';
+                customInput.value = ''; // Clear the input field
+            } else {
+                alert('Please enter a valid time between 1 and 120 minutes.');
+            }
+        }
+    });
+    
+    document.querySelectorAll('.interval-modal .close-modal').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelector('.interval-modal').style.display = 'none';
+        });
+    });
 }); 

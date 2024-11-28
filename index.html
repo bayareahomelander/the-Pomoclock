@@ -93,35 +93,19 @@
                 </div>
                 
                 <!-- Main Timer Intervals Dropdown -->
-                <div class="dropdown" id="main-intervals">
-                    <button class="dropdown-button">
+                <div class="interval-selector" id="main-intervals">
+                    <button class="interval-button">
                         <span class="selected-time">25 minutes</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-clock"></i>
                     </button>
-                    <div class="dropdown-content">
-                        <button class="interval" onclick="setTimerDuration(5)">5 minutes</button>
-                        <button class="interval" onclick="setTimerDuration(10)">10 minutes</button>
-                        <button class="interval" onclick="setTimerDuration(15)">15 minutes</button>
-                        <button class="interval" onclick="setTimerDuration(25)">25 minutes</button>
-                        <div class="custom-interval">
-                            <input type="number" min="1" max="120" placeholder="Custom">
-                        </div>
-                    </div>
                 </div>
                 
                 <!-- Break Timer Intervals Dropdown -->
-                <div class="dropdown" id="break-intervals" style="display: none;">
-                    <button class="dropdown-button">
+                <div class="interval-selector" id="break-intervals" style="display: none;">
+                    <button class="interval-button">
                         <span class="selected-time">5 minutes</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-clock"></i>
                     </button>
-                    <div class="dropdown-content">
-                        <button class="interval" onclick="setTimerDuration(5)">5 minutes</button>
-                        <button class="interval" onclick="setTimerDuration(15)">15 minutes</button>
-                        <div class="custom-interval">
-                            <input type="number" min="1" max="120" placeholder="Custom">
-                        </div>
-                    </div>
                 </div>
             </div>
             
@@ -177,6 +161,22 @@
                 </div>
             </div>
             <button class="close-modal" onclick="toggleAnalytics()">Close</button>
+        </div>
+    </div>
+
+    <div class="interval-modal">
+        <div class="interval-content">
+            <h2>Select Duration</h2>
+            <div class="interval-grid">
+                <button class="interval-option" data-minutes="5">5 minutes</button>
+                <button class="interval-option" data-minutes="10">10 minutes</button>
+                <button class="interval-option" data-minutes="15">15 minutes</button>
+                <button class="interval-option" data-minutes="25">25 minutes</button>
+                <div class="custom-interval-input">
+                    <input type="number" min="1" max="120" placeholder="Custom minutes">
+                </div>
+            </div>
+            <button class="close-modal">Close</button>
         </div>
     </div>
 

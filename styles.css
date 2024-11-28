@@ -375,8 +375,8 @@ button:active {
 }
 
 .timer-type {
-    background-color: #718096;
-    color: white;
+    background-color: var(--button-primary);
+    color: var(--dropdown-bg);
     padding: 10px 20px;
     border-radius: 8px;
 }
@@ -387,8 +387,8 @@ button:active {
 }
 
 .dropdown-button {
-    background-color: #718096;
-    color: white;
+    background-color: var(--button-primary);
+    color: var(--dropdown-bg);
     padding: 10px 20px;
     border-radius: 8px;
     display: flex;
@@ -934,4 +934,242 @@ button:active {
         4px 4px 8px rgba(255, 255, 255, 0.08),
         8px 8px 16px rgba(255, 255, 255, 0.08),
         16px 16px 32px rgba(255, 255, 255, 0.05);
-} 
+}
+
+/* Interval Selector Styles */
+.interval-button {
+    background-color: var(--button-primary);
+    color: var(--dropdown-bg);
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.2),
+        4px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.interval-button:hover {
+    box-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.2),
+        6px 6px 12px rgba(0, 0, 0, 0.15),
+        12px 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode adjustments for interval button */
+[data-theme="dark"] .interval-button {
+    background-color: var(--button-primary);
+    color: #cbd5e0;
+    box-shadow: 
+        2px 2px 4px rgba(255, 255, 255, 0.1),
+        4px 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .interval-button:hover {
+    box-shadow: 
+        3px 3px 6px rgba(255, 255, 255, 0.15),
+        6px 6px 12px rgba(255, 255, 255, 0.1),
+        0 0 16px rgba(255, 255, 255, 0.1);
+}
+
+/* Interval Modal */
+.interval-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.interval-content {
+    background-color: var(--bg-primary);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.interval-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.interval-option {
+    background-color: var(--button-primary);
+    color: var(--text-primary);
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    box-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.1),
+        4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.interval-option:hover {
+    box-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.2),
+        6px 6px 12px rgba(0, 0, 0, 0.15),
+        12px 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.custom-interval-input {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.custom-interval-input input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.apply-custom {
+    padding: 0.5rem 1rem;
+    background-color: var(--button-primary);
+    color: var(--dropdown-bg);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .interval-content {
+    background-color: var(--bg-primary);
+}
+
+[data-theme="dark"] .interval-option {
+    color: var(--text-primary);
+    box-shadow: 
+        2px 2px 4px rgba(255, 255, 255, 0.05),
+        4px 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .interval-option:hover {
+    box-shadow: 
+        3px 3px 6px rgba(255, 255, 255, 0.1),
+        6px 6px 12px rgba(255, 255, 255, 0.08),
+        12px 12px 24px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .interval-modal .close-modal {
+    color: var(--text-primary);
+    box-shadow: 
+        2px 2px 4px rgba(255, 255, 255, 0.05),
+        4px 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .interval-modal .close-modal:hover {
+    box-shadow: 
+        3px 3px 6px rgba(255, 255, 255, 0.1),
+        6px 6px 12px rgba(255, 255, 255, 0.08),
+        12px 12px 24px rgba(255, 255, 255, 0.05);
+}
+
+/* Update interval modal styles */
+.interval-content h2 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.interval-option {
+    background-color: var(--button-primary);
+    color: var(--text-primary);
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    box-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.1),
+        4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.interval-option:hover {
+    box-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.2),
+        6px 6px 12px rgba(0, 0, 0, 0.15),
+        12px 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Update Close button styles */
+.interval-modal .close-modal {
+    display: block;
+    margin: 0 auto;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--button-primary);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.1),
+        4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.interval-modal .close-modal:hover {
+    box-shadow: 
+        3px 3px 6px rgba(0, 0, 0, 0.2),
+        6px 6px 12px rgba(0, 0, 0, 0.15),
+        12px 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .interval-option {
+    color: var(--text-primary);
+    box-shadow: 
+        2px 2px 4px rgba(255, 255, 255, 0.05),
+        4px 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .interval-option:hover {
+    box-shadow: 
+        3px 3px 6px rgba(255, 255, 255, 0.1),
+        6px 6px 12px rgba(255, 255, 255, 0.08),
+        12px 12px 24px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .interval-modal .close-modal {
+    color: var(--text-primary);
+    box-shadow: 
+        2px 2px 4px rgba(255, 255, 255, 0.05),
+        4px 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .interval-modal .close-modal:hover {
+    box-shadow: 
+        3px 3px 6px rgba(255, 255, 255, 0.1),
+        6px 6px 12px rgba(255, 255, 255, 0.08),
+        12px 12px 24px rgba(255, 255, 255, 0.05);
+}
+
+.custom-interval-input input::-webkit-outer-spin-button,
+.custom-interval-input input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.custom-interval-input input {
+    -moz-appearance: textfield; /* For Firefox */
+}
