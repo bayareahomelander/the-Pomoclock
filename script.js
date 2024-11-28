@@ -633,3 +633,28 @@ function skipSession() {
     isRunning = false;
     switchTimerType(currentTimerType === 'main' ? 'break' : 'main');
 }
+
+function toggleInfo() {
+    const modal = document.querySelector('.info-modal');
+    if (modal.style.display === 'flex') {
+        modal.style.display = 'none';
+    } else {
+        modal.style.display = 'flex';
+    }
+}
+
+// Add this to your DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', () => {
+    const infoModal = document.querySelector('.info-modal');
+    const infoContent = document.querySelector('.info-content');
+    
+    infoModal.addEventListener('click', (e) => {
+        if (e.target === infoModal) {
+            infoModal.style.display = 'none';
+        }
+    });
+    
+    infoContent.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+});

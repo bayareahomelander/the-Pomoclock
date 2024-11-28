@@ -85,6 +85,9 @@
         <a href="https://github.com/bayareahomelander/the-Pomoclock" target="_blank" class="github-link" title="View source code on GitHub" aria-label="View project source code on GitHub">
             <i class="fab fa-github" aria-hidden="true"></i>
         </a>
+        <button class="info-toggle" onclick="toggleInfo()" aria-label="Learn about Pomodoro Technique" title="Learn more">
+            <i class="fas fa-info" aria-hidden="true"></i>
+        </button>
         <button class="analytics-toggle" onclick="toggleAnalytics()" aria-label="View focus session analytics" title="View analytics">
             <i class="fas fa-chart-bar" aria-hidden="true"></i>
         </button>
@@ -170,6 +173,37 @@
                 </div>
             </div>
             <button class="close-modal" onclick="toggleAnalytics()">Close</button>
+        </div>
+    </div>
+
+    <div class="info-modal">
+        <div class="info-content">
+            <h2>About the Pomodoro Technique</h2>
+            <div class="info-text">
+                <p>The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. It uses a timer to break work into focused intervals, traditionally 25 minutes in length, separated by short breaks.</p>
+                
+                <h3>How it works:</h3>
+                <ol>
+                    <li>Choose a task to work on</li>
+                    <li>Set the timer (traditionally 25 minutes)</li>
+                    <li>Work on the task until the timer rings</li>
+                    <li>Take a short break (5 minutes)</li>
+                    <li>After 4 pomodoros, take a longer break (15-30 minutes)</li>
+                </ol>
+
+                <h3>Benefits:</h3>
+                <ul>
+                    <li>Reduces mental fatigue</li>
+                    <li>Increases focus and concentration</li>
+                    <li>Helps manage distractions</li>
+                    <li>Improves work/break balance</li>
+                </ul>
+
+                <p class="try-it-out">Ready to boost your productivity? Try it out!</p>
+                
+                <p class="learn-more">Learn more about the Pomodoro Technique on <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank" rel="noopener noreferrer">Wikipedia</a>.</p>
+            </div>
+            <button class="close-modal" onclick="toggleInfo()">Close</button>
         </div>
     </div>
 

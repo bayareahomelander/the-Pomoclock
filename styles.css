@@ -82,24 +82,23 @@ body {
     font-weight: 550;
     color: var(--text-primary);
     text-shadow: 
-        1px 1px 3px rgba(0, 0, 0, 0.3),
+        3px 3px 3px rgba(0, 0, 0, 0.3),
         3px 3px 3px rgba(0, 0, 0, 0.25),
-        5px 5px 3px rgba(0, 0, 0, 0.2),
-        7px 7px 3px rgba(0, 0, 0, 0.15),
-        9px 9px 3px rgba(0, 0, 0, 0.1);
+        3px 3px 3px rgba(0, 0, 0, 0.2),
+        3px 3px 3px rgba(0, 0, 0, 0.15),
+        3px 3px 3px rgba(0, 0, 0, 0.1);
     transition: color 0.3s ease, text-shadow 0.3s ease;
     min-width: 1.5em;
     text-align: center;
 }
 
-
 [data-theme="dark"] .timer {
     text-shadow: 
-        1px 1px 3px rgba(255, 255, 255, 0.15),
+        3px 3px 3px rgba(255, 255, 255, 0.15),
         3px 3px 3px rgba(255, 255, 255, 0.12),
-        5px 5px 3px rgba(255, 255, 255, 0.1),
-        7px 7px 3px rgba(255, 255, 255, 0.08),
-        9px 9px 3px rgba(255, 255, 255, 0.05);
+        3px 3px 3px rgba(255, 255, 255, 0.1),
+        3px 3px 3px rgba(255, 255, 255, 0.08),
+        3px 3px 3px rgba(255, 255, 255, 0.05);
     color: #cbd5e0;
 }
 
@@ -1274,7 +1273,7 @@ button:active {
 .github-link {
     position: fixed;
     top: 20px;
-    right: 120px;
+    right: 170px;  /* Increased from 120px */
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -1331,4 +1330,111 @@ button:active {
 
 .todo-container::-webkit-scrollbar-thumb:hover {
     background: var(--button-hover);
+}
+
+.info-toggle {
+    position: fixed;
+    top: 20px;
+    right: 120px;  /* Increased from 95px */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--button-primary);
+    color: var(--dropdown-bg);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 
+        1px 1px 3px rgba(0, 0, 0, 0.2),
+        3px 3px 3px rgba(0, 0, 0, 0.15),
+        5px 5px 3px rgba(0, 0, 0, 0.1);
+}
+
+.info-toggle:hover {
+    box-shadow: 
+        2px 2px 3px rgba(0, 0, 0, 0.25),
+        4px 4px 3px rgba(0, 0, 0, 0.2),
+        6px 6px 3px rgba(0, 0, 0, 0.15);
+}
+
+.info-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-content {
+    background-color: var(--bg-primary);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-text {
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin: 1.5rem 0;
+}
+
+.info-text h3 {
+    margin: 1.5rem 0 1rem;
+}
+
+.info-text ul, .info-text ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.info-text li {
+    margin-bottom: 0.5rem;
+}
+
+[data-theme="dark"] .info-content {
+    background-color: var(--bg-primary);
+}
+
+.info-text .try-it-out {
+    font-weight: bold;
+    margin-top: 2rem;
+    font-size: 1.1em;
+    color: var(--text-primary);
+}
+
+.info-text .learn-more {
+    margin-top: 1rem;
+    font-size: 0.9em;
+    color: var(--text-primary);
+}
+
+.info-text .learn-more a {
+    color: #4299e1;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.info-text .learn-more a:hover {
+    color: #2b6cb0;
+    text-decoration: underline;
+}
+
+[data-theme="dark"] .info-text .learn-more a {
+    color: #63b3ed;
+}
+
+[data-theme="dark"] .info-text .learn-more a:hover {
+    color: #90cdf4;
 }
