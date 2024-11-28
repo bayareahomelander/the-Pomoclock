@@ -68,7 +68,6 @@ body {
 }
 
 .theme-toggle:hover {
-    transform: rotate(360deg);
     box-shadow: 
         3px 3px 6px rgba(0, 0, 0, 0.25),
         6px 6px 12px rgba(0, 0, 0, 0.2),
@@ -159,18 +158,6 @@ body {
         6px 6px 12px rgba(0, 0, 0, 0.2),
         12px 12px 24px rgba(0, 0, 0, 0.15),
         16px 16px 32px rgba(0, 0, 0, 0.1);
-}
-
-.start-pause.paused:hover {
-    /* remove background-color: var(--timer-pause-hover); */
-}
-
-.icon-button {
-    background-color: var(--button-primary);
-}
-
-.icon-button:hover {
-    /* remove background-color: var(--button-hover); */
 }
 
 /* Update todo list styles */
@@ -394,10 +381,6 @@ button:active {
     border-radius: 8px;
 }
 
-.timer-type.active {
-    /* background-color: #2d3748; */
-}
-
 .dropdown {
     position: relative;
     display: inline-block;
@@ -476,10 +459,6 @@ button:active {
         16px 16px 32px rgba(0, 0, 0, 0.1);
 }
 
-.start-pause.paused:hover {
-    /* remove background-color: var(--timer-pause-hover); */
-}
-
 .icon-button {
     background-color: #718096;
     border-radius: 8px;
@@ -489,10 +468,6 @@ button:active {
     color: white;
 }
 
-.icon-button:hover {
-    /* remove background-color: var(--button-hover); */
-}
-
 .icon-button i {
     transition: transform 0.3s ease;
 }
@@ -500,11 +475,6 @@ button:active {
 .icon-button:hover i {
     transform: rotate(180deg);
 }
-
-.timer.running {
-    /* animation: timerPulse 2s infinite; <- remove this */
-}
-
 /* Todo List Styles */
 .todo-container {
     margin-top: 40px;
@@ -660,7 +630,6 @@ button:active {
 }
 
 [data-theme="dark"] .theme-toggle:hover {
-    transform: rotate(360deg);
     box-shadow: 
         3px 3px 6px rgba(255, 255, 255, 0.15),
         6px 6px 12px rgba(255, 255, 255, 0.1),
@@ -844,4 +813,125 @@ button:active {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+}
+
+/* Analytics Toggle Button */
+.analytics-toggle {
+    position: fixed;
+    top: 20px;
+    right: 70px; /* Position it next to theme toggle */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--button-primary);
+    color: var(--dropdown-bg);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.2),
+        4px 4px 8px rgba(0, 0, 0, 0.15),
+        8px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.analytics-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Analytics Modal */
+.analytics-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.analytics-content {
+    background-color: var(--bg-primary);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.stat-card {
+    background-color: var(--dropdown-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.1),
+        4px 4px 8px rgba(0, 0, 0, 0.1),
+        8px 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.15),
+        4px 4px 8px rgba(0, 0, 0, 0.15),
+        8px 8px 16px rgba(0, 0, 0, 0.15),
+        16px 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+    color: var(--text-primary);
+}
+
+.stat-label {
+    color: var(--text-primary);
+    opacity: 0.8;
+}
+
+.close-modal {
+    display: block;
+    margin: 0 auto;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--button-primary);
+    color: var(--dropdown-bg);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .analytics-content {
+    background-color: var(--bg-primary);
+}
+
+[data-theme="dark"] .stat-card {
+    background-color: var(--dropdown-bg);
+    box-shadow: 
+        2px 2px 4px rgba(255, 255, 255, 0.05),
+        4px 4px 8px rgba(255, 255, 255, 0.05),
+        8px 8px 16px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .stat-card:hover {
+    box-shadow: 
+        2px 2px 4px rgba(255, 255, 255, 0.08),
+        4px 4px 8px rgba(255, 255, 255, 0.08),
+        8px 8px 16px rgba(255, 255, 255, 0.08),
+        16px 16px 32px rgba(255, 255, 255, 0.05);
 } 

@@ -5,6 +5,13 @@ let currentInterval = 25;
 let currentTimerType = 'main';
 let notificationPermission = false;
 let isDarkMode = false;
+let analytics = {
+    focusSessions: 0,
+    focusMinutes: 0,
+    tasksCompleted: 0,
+    lastSession: null,
+    currentStreak: 0
+};
 
 function updateTimerDisplay() {
     const minutes = Math.floor(timeLeft / 60);
@@ -58,6 +65,21 @@ function toggleTimer() {
                 button.textContent = 'Start';
                 button.classList.remove('paused');
                 
+                // Update analytics when a session completes
+                if (currentTimerType === 'main') {
+                    analytics.focusSessions++;
+                    analytics.focusMinutes += currentInterval;
+                    
+                    // Update streak
+                    const today = new Date().toDateString();
+                    if (analytics.lastSession !== today) {
+                        analytics.currentStreak = analytics.lastSession ? analytics.currentStreak + 1 : 1;
+                        analytics.lastSession = today;
+                    }
+                    
+                    saveAnalytics();
+                }
+                
                 // Send notification when timer ends
                 if (notificationPermission) {
                     const message = currentTimerType === 'main' 
@@ -70,7 +92,14 @@ function toggleTimer() {
                     });
                 }
                 
-                alert('Time is Up!');
+                // If Focus timer ends, switch to Break timer
+                if (currentTimerType === 'main') {
+                    alert('Focus time is up! Ready for a break?');
+                    switchTimerType('break');
+                } else {
+                    alert('Break time is over! Ready to focus?');
+                    switchTimerType('main');
+                }
             }
         }, 1000);
     } else {
@@ -97,9 +126,9 @@ function resetTimer() {
 }
 
 function switchTimerType(type) {
-    if (isRunning) {
-        return;
-    }
+    // Clear any running timer
+    clearInterval(timer);
+    isRunning = false;
     
     currentTimerType = type;
     
@@ -126,7 +155,13 @@ function switchTimerType(type) {
     
     // Reset timer to default value for the selected type
     currentInterval = type === 'main' ? 25 : 5;
-    resetTimer();
+    timeLeft = currentInterval * 60;
+    updateTimerDisplay();
+    
+    // Reset start/pause button
+    const button = document.querySelector('.start-pause');
+    button.textContent = 'Start';
+    button.classList.remove('paused');
     
     // Update dropdown text
     const dropdown = document.getElementById(`${type}-intervals`);
@@ -388,6 +423,10 @@ function addTodoFromData(taskData) {
     checkbox.onclick = function() {
         this.classList.toggle('checked');
         textSpan.classList.toggle('completed');
+        if (this.classList.contains('checked')) {
+            analytics.tasksCompleted++;
+            saveAnalytics();
+        }
         saveTasks();
     };
     
@@ -433,3 +472,60 @@ function checkStorageLimit() {
     const limit = 5 * 1024 * 1024; // 5MB
     return totalSize < limit;
 } 
+
+// Load analytics from localStorage
+function loadAnalytics() {
+    const savedAnalytics = localStorage.getItem('pomoAnalytics');
+    if (savedAnalytics) {
+        analytics = JSON.parse(savedAnalytics);
+        updateAnalyticsDisplay();
+    }
+}
+
+// Save analytics to localStorage
+function saveAnalytics() {
+    localStorage.setItem('pomoAnalytics', JSON.stringify(analytics));
+    updateAnalyticsDisplay();
+}
+
+// Update the analytics display
+function updateAnalyticsDisplay() {
+    document.getElementById('totalFocusSessions').textContent = analytics.focusSessions;
+    document.getElementById('totalFocusMinutes').textContent = analytics.focusMinutes;
+    document.getElementById('tasksCompleted').textContent = analytics.tasksCompleted;
+    document.getElementById('currentStreak').textContent = analytics.currentStreak;
+}
+
+// Toggle analytics modal
+function toggleAnalytics() {
+    const modal = document.querySelector('.analytics-modal');
+    if (modal.style.display === 'flex') {
+        modal.style.display = 'none';
+    } else {
+        updateAnalyticsDisplay();
+        modal.style.display = 'flex';
+    }
+}
+
+// Add this to your DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', () => {
+    loadAnalytics();
+    
+    // Add click event listener to the modal background
+    const modal = document.querySelector('.analytics-modal');
+    const modalContent = document.querySelector('.analytics-content');
+    
+    modal.addEventListener('click', (e) => {
+        // Close only if clicking the overlay (not the content)
+        if (e.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+    
+    // Prevent clicks inside the modal from closing it
+    modalContent.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+    
+    // ... rest of your existing code ...
+}); 
