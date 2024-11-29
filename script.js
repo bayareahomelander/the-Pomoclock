@@ -285,6 +285,9 @@ document.addEventListener('DOMContentLoaded', () => {
     skipButton.onclick = skipSession;
     
     buttonsContainer.insertBefore(skipButton, resetButton);
+    
+    // Initialize delete-all button visibility
+    updateDeleteAllButton();
 });
 
 // Applies custom interval duration from user input
@@ -446,6 +449,7 @@ function saveTasks() {
         });
         
         localStorage.setItem('todoTasks', JSON.stringify(tasks));
+        updateDeleteAllButton();
     } catch (error) {
         console.error('Error saving tasks:', error);
     }
@@ -513,6 +517,7 @@ function addTodoFromData(taskData) {
     li.addEventListener('drop', handleDrop);
     
     todoList.appendChild(li);
+    updateDeleteAllButton();
 }
 
 // Sanitizes user input to prevent XSS
@@ -724,4 +729,43 @@ function showDeleteConfirmation(taskElement) {
     modal.querySelector('.delete-confirm-yes').addEventListener('click', deleteYes);
     modal.querySelector('.delete-confirm-no').addEventListener('click', deleteNo);
     modal.addEventListener('click', modalClick);
+}
+
+function showDeleteAllConfirmation() {
+    const modal = document.querySelector('.delete-all-confirm-modal');
+    modal.style.display = 'flex';
+
+    const handleDelete = (confirm) => {
+        if (confirm) {
+            const todoList = document.getElementById('todo-list');
+            todoList.innerHTML = '';
+            saveTasks();
+            updateDeleteAllButton();
+        }
+        modal.style.display = 'none';
+        
+        // Remove event listeners
+        modal.querySelector('.delete-confirm-yes').removeEventListener('click', deleteYes);
+        modal.querySelector('.delete-confirm-no').removeEventListener('click', deleteNo);
+        modal.removeEventListener('click', modalClick);
+    };
+
+    const deleteYes = () => handleDelete(true);
+    const deleteNo = () => handleDelete(false);
+    const modalClick = (e) => {
+        if (e.target === modal) {
+            handleDelete(false);
+        }
+    };
+
+    // Add event listeners
+    modal.querySelector('.delete-confirm-yes').addEventListener('click', deleteYes);
+    modal.querySelector('.delete-confirm-no').addEventListener('click', deleteNo);
+    modal.addEventListener('click', modalClick);
+}
+
+function updateDeleteAllButton() {
+    const deleteAllBtn = document.querySelector('.delete-all');
+    const todoList = document.getElementById('todo-list');
+    deleteAllBtn.style.display = todoList.children.length > 0 ? 'block' : 'none';
 }
