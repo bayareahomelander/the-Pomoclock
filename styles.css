@@ -42,7 +42,7 @@ body {
     justify-content: flex-start;
     gap: 40px;
     color: var(--text-primary);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
     box-sizing: border-box;
     overflow: hidden;
 }
@@ -62,11 +62,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.theme-toggle:hover {
-    /* Remove box-shadow */
+    transition: all 0.2s ease;
 }
 
 .timer {
@@ -80,7 +76,7 @@ body {
         3px 3px 3px rgba(0, 0, 0, 0.2),
         3px 3px 3px rgba(0, 0, 0, 0.15),
         3px 3px 3px rgba(0, 0, 0, 0.1);
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
     min-width: 1.5em;
     text-align: center;
 }
@@ -108,7 +104,6 @@ body {
     right: 0;
     background-color: var(--button-primary);
     border-radius: 6px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     z-index: 1;
     margin-top: 4px;
@@ -140,11 +135,6 @@ body {
     background-color: #e53e3e;
 }
 
-.start-pause:hover {
-    /* Remove box-shadow */
-}
-
-
 #todo-input {
     flex-grow: 1;
     padding: 8px 12px;
@@ -154,7 +144,7 @@ body {
     font-size: 14px;
     background: transparent;
     color: var(--text-primary);
-    transition: border-color 0.3s ease;
+    transition: border-color 0.2s ease;
 }
 
 #todo-input:focus {
@@ -172,10 +162,6 @@ body {
     color: white;
     padding: 8px 16px;
     border-radius: 6px;
-}
-
-.add-todo:hover {
-    /* Remove box-shadow */
 }
 
 .todo-list {
@@ -289,7 +275,7 @@ body {
     border-radius: 0;
     background-color: transparent;
     color: var(--text-primary);
-    transition: border-color 0.3s ease;
+    transition: border-color 0.2s ease;
 }
 
 .custom-interval input:focus {
@@ -340,11 +326,7 @@ button {
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-button:hover {
-    /* Remove box-shadow */
+    transition: all 0.2s ease;
 }
 
 button:active {
@@ -385,15 +367,11 @@ button:active {
     height: 3px;
     background-color: var(--timer-start);
     border-radius: 2px;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 [data-theme="dark"] .timer-type.active::after {
     background-color: var(--timer-start);
-}
-
-.timer-type:hover {
-    /* Remove box-shadow */
 }
 
 .dropdown {
@@ -412,7 +390,7 @@ button:active {
 }
 
 .dropdown-button i {
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .dropdown-content {
@@ -423,7 +401,6 @@ button:active {
     right: 0;
     background-color: var(--button-primary);
     border-radius: 6px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     z-index: 1;
     margin-top: 4px;
@@ -481,7 +458,7 @@ button:active {
 }
 
 .icon-button i {
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .icon-button:hover i {
@@ -515,7 +492,7 @@ button:active {
     font-size: 14px;
     background: transparent;
     color: var(--text-primary);
-    transition: border-color 0.3s ease;
+    transition: border-color 0.2s ease;
 }
 
 #todo-input:focus {
@@ -533,10 +510,6 @@ button:active {
     color: white;
     padding: 8px 16px;
     border-radius: 6px;
-}
-
-.add-todo:hover {
-    /* Remove box-shadow */
 }
 
 .todo-list {
@@ -603,7 +576,7 @@ button:active {
     border-radius: 0;
     background-color: transparent;
     color: var(--text-primary);
-    transition: border-color 0.3s ease;
+    transition: border-color 0.2s ease;
 }
 
 .custom-interval input:focus {
@@ -630,31 +603,6 @@ button:active {
 .custom-interval input:focus {
     outline: none;
     border-bottom-color: var(--dropdown-bg);
-}
-
-
-[data-theme="dark"] button {
-    /* Remove box-shadow */
-}
-
-[data-theme="dark"] .theme-toggle {
-    /* Remove box-shadow */
-}
-
-[data-theme="dark"] .theme-toggle:hover {
-    /* Remove box-shadow */
-}
-
-[data-theme="dark"] .start-pause {
-    /* Remove box-shadow */
-}
-
-[data-theme="dark"] .start-pause:hover {
-    /* Remove box-shadow */
-}
-
-[data-theme="dark"] .dropdown-content {
-    /* Remove box-shadow */
 }
 
 
@@ -911,13 +859,8 @@ button:active {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
-
-.analytics-toggle:hover {
-    /* Remove box-shadow */
-}
-
 
 .analytics-modal {
     display: none;
@@ -938,7 +881,6 @@ button:active {
     border-radius: 12px;
     width: 90%;
     max-width: 600px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .analytics-grid {
@@ -953,19 +895,10 @@ button:active {
     padding: 1.5rem;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.1),
-        4px 4px 8px rgba(0, 0, 0, 0.1),
-        8px 8px 16px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .stat-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.15),
-        4px 4px 8px rgba(0, 0, 0, 0.15),
-        8px 8px 16px rgba(0, 0, 0, 0.1);
+    /* Remove transform: translateY(-2px); */
 }
 
 .stat-value {
@@ -997,18 +930,13 @@ button:active {
 
 [data-theme="dark"] .stat-card {
     background-color: var(--dropdown-bg);
-    box-shadow: 
-        2px 2px 4px rgba(255, 255, 255, 0.05),
-        4px 4px 8px rgba(255, 255, 255, 0.05),
-        8px 8px 16px rgba(255, 255, 255, 0.05);
 }
 
 [data-theme="dark"] .stat-card:hover {
     box-shadow: 
-        2px 2px 4px rgba(255, 255, 255, 0.08),
-        4px 4px 8px rgba(255, 255, 255, 0.08),
-        8px 8px 16px rgba(255, 255, 255, 0.08),
-        16px 16px 32px rgba(255, 255, 255, 0.05);
+        2px 2px 4px rgba(255, 255, 255, 0.05),
+        4px 4px 8px rgba(255, 255, 255, 0.05),
+        8px 8px 16px rgba(255, 255, 255, 0.05);
 }
 
 
@@ -1022,10 +950,7 @@ button:active {
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.2),
-        4px 4px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
     min-width: 150px;
     width: 150px;
     justify-content: space-between;
@@ -1072,7 +997,6 @@ button:active {
     border-radius: 12px;
     width: 90%;
     max-width: 400px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .interval-grid {
@@ -1089,11 +1013,8 @@ button:active {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     font-size: 1rem;
-    box-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.1),
-        4px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .interval-option:hover {
@@ -1118,7 +1039,7 @@ button:active {
     border-radius: 0;
     background-color: transparent;
     color: var(--text-primary);
-    transition: border-color 0.3s ease;
+    transition: border-color 0.2s ease;
 }
 
 .custom-interval-input input:focus {
@@ -1183,11 +1104,8 @@ button:active {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     font-size: 1rem;
-    box-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.1),
-        4px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .interval-option:hover {
@@ -1207,10 +1125,7 @@ button:active {
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.1),
-        4px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
 }
 
 .interval-modal .close-modal:hover {
@@ -1273,12 +1188,8 @@ button:active {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     text-decoration: none;
-}
-
-.github-link:hover {
-    /* Remove box-shadow */
 }
 
 [data-theme="dark"] .github-link {
@@ -1328,11 +1239,7 @@ button:active {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.info-toggle:hover {
-    /* Remove box-shadow */
+    transition: all 0.2s ease;
 }
 
 .info-modal {
@@ -1354,7 +1261,6 @@ button:active {
     border-radius: 12px;
     width: 90%;
     max-width: 600px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .info-text {
@@ -1478,11 +1384,7 @@ button:active {
     display: none; /* Hidden by default */
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.interval-toggle:hover {
-    /* Remove box-shadow */
+    transition: all 0.2s ease;
 }
 
 [data-theme="dark"] .interval-toggle {
@@ -1527,7 +1429,7 @@ button:active {
     background: transparent;
     color: var(--text-primary);
     cursor: pointer;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.2s ease;
 }
 
 .priority-select:focus {
@@ -1610,7 +1512,9 @@ button:active {
 }
 
 /* Standard shadow for all buttons and interactive elements */
-button, .add-todo, .icon-button, .theme-toggle, .analytics-toggle, .github-link, .interval-toggle {
+button, .add-todo, .icon-button, .theme-toggle, .analytics-toggle, .github-link, .interval-toggle,
+.dropdown-content, .analytics-content, .stat-card, .info-content, .interval-button,
+.interval-option, .interval-modal .close-modal {
     box-shadow: 
         1px 1px 3px rgba(0, 0, 0, 0.2),
         3px 3px 3px rgba(0, 0, 0, 0.15),
@@ -1619,7 +1523,9 @@ button, .add-todo, .icon-button, .theme-toggle, .analytics-toggle, .github-link,
 
 /* Standard hover shadow */
 button:hover, .add-todo:hover, .icon-button:hover, .theme-toggle:hover, 
-.analytics-toggle:hover, .github-link:hover, .interval-toggle:hover {
+.analytics-toggle:hover, .github-link:hover, .interval-toggle:hover,
+.stat-card:hover, .interval-button:hover, .interval-option:hover, 
+.interval-modal .close-modal:hover {
     box-shadow: 
         2px 2px 3px rgba(0, 0, 0, 0.25),
         4px 4px 3px rgba(0, 0, 0, 0.2),
@@ -1633,7 +1539,14 @@ button:hover, .add-todo:hover, .icon-button:hover, .theme-toggle:hover,
 [data-theme="dark"] .theme-toggle,
 [data-theme="dark"] .analytics-toggle,
 [data-theme="dark"] .github-link,
-[data-theme="dark"] .interval-toggle {
+[data-theme="dark"] .interval-toggle,
+[data-theme="dark"] .dropdown-content,
+[data-theme="dark"] .analytics-content,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .info-content,
+[data-theme="dark"] .interval-button,
+[data-theme="dark"] .interval-option,
+[data-theme="dark"] .interval-modal .close-modal {
     box-shadow: 
         1px 1px 3px rgba(255, 255, 255, 0.1),
         3px 3px 3px rgba(255, 255, 255, 0.05);
@@ -1646,7 +1559,11 @@ button:hover, .add-todo:hover, .icon-button:hover, .theme-toggle:hover,
 [data-theme="dark"] .theme-toggle:hover,
 [data-theme="dark"] .analytics-toggle:hover,
 [data-theme="dark"] .github-link:hover,
-[data-theme="dark"] .interval-toggle:hover {
+[data-theme="dark"] .interval-toggle:hover,
+[data-theme="dark"] .stat-card:hover,
+[data-theme="dark"] .interval-button:hover,
+[data-theme="dark"] .interval-option:hover,
+[data-theme="dark"] .interval-modal .close-modal:hover {
     box-shadow: 
         2px 2px 3px rgba(255, 255, 255, 0.15),
         4px 4px 3px rgba(255, 255, 255, 0.1),
