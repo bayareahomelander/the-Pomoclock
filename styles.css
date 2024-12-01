@@ -63,17 +63,10 @@ body {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    box-shadow: 
-        1px 1px 3px rgba(0, 0, 0, 0.2),
-        3px 3px 3px rgba(0, 0, 0, 0.15),
-        5px 5px 3px rgba(0, 0, 0, 0.1);
 }
 
 .theme-toggle:hover {
-    box-shadow: 
-        2px 2px 3px rgba(0, 0, 0, 0.25),
-        4px 4px 3px rgba(0, 0, 0, 0.2),
-        6px 6px 3px rgba(0, 0, 0, 0.15);
+    /* Remove box-shadow */
 }
 
 .timer {
@@ -105,10 +98,6 @@ body {
 .timer-type, .dropdown-button {
     background-color: var(--button-primary);
     color: var(--dropdown-bg);
-    box-shadow: 
-        1px 1px 3px rgba(0, 0, 0, 0.2),
-        3px 3px 3px rgba(0, 0, 0, 0.15),
-        5px 5px 3px rgba(0, 0, 0, 0.1);
 }
 
 .dropdown-content {
@@ -152,11 +141,7 @@ body {
 }
 
 .start-pause:hover {
-    box-shadow: 
-        2px 2px 3px rgba(0, 0, 0, 0.25),
-        4px 4px 3px rgba(0, 0, 0, 0.2),
-        6px 6px 3px rgba(0, 0, 0, 0.15),
-        8px 8px 3px rgba(0, 0, 0, 0.1);
+    /* Remove box-shadow */
 }
 
 
@@ -187,17 +172,10 @@ body {
     color: white;
     padding: 8px 16px;
     border-radius: 6px;
-    box-shadow: 
-        1px 1px 3px rgba(0, 0, 0, 0.2),
-        3px 3px 3px rgba(0, 0, 0, 0.15),
-        5px 5px 3px rgba(0, 0, 0, 0.1);
 }
 
 .add-todo:hover {
-    box-shadow: 
-        2px 2px 3px rgba(0, 0, 0, 0.25),
-        4px 4px 3px rgba(0, 0, 0, 0.2),
-        6px 6px 3px rgba(0, 0, 0, 0.15);
+    /* Remove box-shadow */
 }
 
 .todo-list {
@@ -363,17 +341,10 @@ button {
     border-radius: 6px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 
-        1px 1px 3px rgba(0, 0, 0, 0.2),
-        3px 3px 3px rgba(0, 0, 0, 0.15),
-        5px 5px 3px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-    box-shadow: 
-        2px 2px 3px rgba(0, 0, 0, 0.25),
-        4px 4px 3px rgba(0, 0, 0, 0.2),
-        6px 6px 3px rgba(0, 0, 0, 0.15);
+    /* Remove box-shadow */
 }
 
 button:active {
@@ -422,10 +393,7 @@ button:active {
 }
 
 .timer-type:hover {
-    box-shadow: 
-        2px 2px 3px rgba(0, 0, 0, 0.25),
-        4px 4px 3px rgba(0, 0, 0, 0.2),
-        6px 6px 3px rgba(0, 0, 0, 0.15);
+    /* Remove box-shadow */
 }
 
 .dropdown {
@@ -500,11 +468,7 @@ button:active {
 }
 
 .start-pause:hover {
-    box-shadow: 
-        2px 2px 3px rgba(0, 0, 0, 0.25),
-        4px 4px 3px rgba(0, 0, 0, 0.2),
-        6px 6px 3px rgba(0, 0, 0, 0.15),
-        8px 8px 3px rgba(0, 0, 0, 0.1);
+    /* Remove box-shadow */
 }
 
 .icon-button {
@@ -569,17 +533,10 @@ button:active {
     color: white;
     padding: 8px 16px;
     border-radius: 6px;
-    box-shadow: 
-        1px 1px 3px rgba(0, 0, 0, 0.2),
-        3px 3px 3px rgba(0, 0, 0, 0.15),
-        5px 5px 3px rgba(0, 0, 0, 0.1);
 }
 
 .add-todo:hover {
-    box-shadow: 
-        2px 2px 3px rgba(0, 0, 0, 0.25),
-        4px 4px 3px rgba(0, 0, 0, 0.2),
-        6px 6px 3px rgba(0, 0, 0, 0.15);
+    /* Remove box-shadow */
 }
 
 .todo-list {
@@ -677,52 +634,27 @@ button:active {
 
 
 [data-theme="dark"] button {
-    box-shadow: 
-        1px 1px 3px rgba(255, 255, 255, 0.1),
-        3px 3px 3px rgba(255, 255, 255, 0.05);
+    /* Remove box-shadow */
 }
-
-[data-theme="dark"] button:hover {
-    box-shadow: 
-        2px 2px 3px rgba(255, 255, 255, 0.15),
-        4px 4px 3px rgba(255, 255, 255, 0.1),
-        6px 6px 3px rgba(255, 255, 255, 0.05);
-}
-
 
 [data-theme="dark"] .theme-toggle {
-    box-shadow: 
-        1px 1px 3px rgba(255, 255, 255, 0.1),
-        3px 3px 3px rgba(255, 255, 255, 0.05);
+    /* Remove box-shadow */
 }
 
 [data-theme="dark"] .theme-toggle:hover {
-    box-shadow: 
-        2px 2px 3px rgba(255, 255, 255, 0.15),
-        4px 4px 3px rgba(255, 255, 255, 0.1),
-        6px 6px 3px rgba(255, 255, 255, 0.05);
+    /* Remove box-shadow */
 }
 
 [data-theme="dark"] .start-pause {
-    box-shadow: 
-        1px 1px 3px rgba(255, 255, 255, 0.1),
-        3px 3px 3px rgba(255, 255, 255, 0.05),
-        5px 5px 3px rgba(255, 255, 255, 0.03);
-    transition: all 0.2s ease;
+    /* Remove box-shadow */
 }
 
 [data-theme="dark"] .start-pause:hover {
-    box-shadow: 
-        2px 2px 3px rgba(255, 255, 255, 0.15),
-        4px 4px 3px rgba(255, 255, 255, 0.1),
-        6px 6px 3px rgba(255, 255, 255, 0.05),
-        0 0 16px rgba(255, 255, 255, 0.1);
+    /* Remove box-shadow */
 }
 
 [data-theme="dark"] .dropdown-content {
-    box-shadow: 
-        2px 2px 4px rgba(255, 255, 255, 0.1),
-        4px 4px 8px rgba(255, 255, 255, 0.05);
+    /* Remove box-shadow */
 }
 
 
@@ -980,17 +912,10 @@ button:active {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    box-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.2),
-        4px 4px 8px rgba(0, 0, 0, 0.15),
-        8px 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .analytics-toggle:hover {
-    box-shadow: 
-        3px 3px 6px rgba(0, 0, 0, 0.25),
-        6px 6px 12px rgba(0, 0, 0, 0.2),
-        12px 12px 24px rgba(0, 0, 0, 0.15);
+    /* Remove box-shadow */
 }
 
 
@@ -1349,18 +1274,11 @@ button:active {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    box-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.2),
-        4px 4px 8px rgba(0, 0, 0, 0.15),
-        8px 8px 16px rgba(0, 0, 0, 0.1);
     text-decoration: none;
 }
 
 .github-link:hover {
-    box-shadow: 
-        3px 3px 6px rgba(0, 0, 0, 0.25),
-        6px 6px 12px rgba(0, 0, 0, 0.2),
-        12px 12px 24px rgba(0, 0, 0, 0.15);
+    /* Remove box-shadow */
 }
 
 [data-theme="dark"] .github-link {
@@ -1411,17 +1329,10 @@ button:active {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    box-shadow: 
-        1px 1px 3px rgba(0, 0, 0, 0.2),
-        3px 3px 3px rgba(0, 0, 0, 0.15),
-        5px 5px 3px rgba(0, 0, 0, 0.1);
 }
 
 .info-toggle:hover {
-    box-shadow: 
-        2px 2px 3px rgba(0, 0, 0, 0.25),
-        4px 4px 3px rgba(0, 0, 0, 0.2),
-        6px 6px 3px rgba(0, 0, 0, 0.15);
+    /* Remove box-shadow */
 }
 
 .info-modal {
@@ -1568,17 +1479,10 @@ button:active {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    box-shadow: 
-        1px 1px 3px rgba(0, 0, 0, 0.2),
-        3px 3px 3px rgba(0, 0, 0, 0.15),
-        5px 5px 3px rgba(0, 0, 0, 0.1);
 }
 
 .interval-toggle:hover {
-    box-shadow: 
-        2px 2px 3px rgba(0, 0, 0, 0.25),
-        4px 4px 3px rgba(0, 0, 0, 0.2),
-        6px 6px 3px rgba(0, 0, 0, 0.15);
+    /* Remove box-shadow */
 }
 
 [data-theme="dark"] .interval-toggle {
@@ -1703,4 +1607,48 @@ button:active {
 /* Dark mode adjustments */
 [data-theme="dark"] .icon-button.auto-start-toggle {
     color: #cbd5e0;  /* Ensures white icon in dark mode */
+}
+
+/* Standard shadow for all buttons and interactive elements */
+button, .add-todo, .icon-button, .theme-toggle, .analytics-toggle, .github-link, .interval-toggle {
+    box-shadow: 
+        1px 1px 3px rgba(0, 0, 0, 0.2),
+        3px 3px 3px rgba(0, 0, 0, 0.15),
+        5px 5px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Standard hover shadow */
+button:hover, .add-todo:hover, .icon-button:hover, .theme-toggle:hover, 
+.analytics-toggle:hover, .github-link:hover, .interval-toggle:hover {
+    box-shadow: 
+        2px 2px 3px rgba(0, 0, 0, 0.25),
+        4px 4px 3px rgba(0, 0, 0, 0.2),
+        6px 6px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark mode standard shadow */
+[data-theme="dark"] button,
+[data-theme="dark"] .add-todo,
+[data-theme="dark"] .icon-button,
+[data-theme="dark"] .theme-toggle,
+[data-theme="dark"] .analytics-toggle,
+[data-theme="dark"] .github-link,
+[data-theme="dark"] .interval-toggle {
+    box-shadow: 
+        1px 1px 3px rgba(255, 255, 255, 0.1),
+        3px 3px 3px rgba(255, 255, 255, 0.05);
+}
+
+/* Dark mode hover shadow */
+[data-theme="dark"] button:hover,
+[data-theme="dark"] .add-todo:hover,
+[data-theme="dark"] .icon-button:hover,
+[data-theme="dark"] .theme-toggle:hover,
+[data-theme="dark"] .analytics-toggle:hover,
+[data-theme="dark"] .github-link:hover,
+[data-theme="dark"] .interval-toggle:hover {
+    box-shadow: 
+        2px 2px 3px rgba(255, 255, 255, 0.15),
+        4px 4px 3px rgba(255, 255, 255, 0.1),
+        6px 6px 3px rgba(255, 255, 255, 0.05);
 }
