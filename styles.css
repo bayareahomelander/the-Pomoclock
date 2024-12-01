@@ -521,7 +521,7 @@ button:active {
 }
 
 .icon-button:hover i {
-    transform: rotate(180deg);
+    transform: none;
 }
 
 .todo-container {
@@ -1334,58 +1334,6 @@ button:active {
     -moz-appearance: textfield;
 }
 
-.skip-session {
-    background-color: #718096; 
-    border-radius: 8px;
-    width: 32px;
-    height: 32px;
-    padding: 6px;
-    color: white;
-}
-
-.skip-session:hover {
-    background-color: #4a5568;
-}
-
-
-[data-theme="dark"] .skip-session {
-    background-color: var(--button-primary);
-    color: #cbd5e0;
-}
-
-[data-theme="dark"] .skip-session:hover {
-    background-color: var(--button-hover);
-}
-
-
-.buttons {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-}
-
-
-[data-theme="dark"] .icon-button {
-    background-color: var(--button-primary);
-    color: #cbd5e0;
-}
-
-[data-theme="dark"] .icon-button:hover {
-    background-color: var(--button-hover);
-}
-
-
-[data-theme="dark"] .skip-session {
-    background-color: var(--button-primary);
-    color: #cbd5e0;
-}
-
-[data-theme="dark"] .skip-session:hover {
-    background-color: var(--button-hover);
-}
-
-
 .github-link {
     position: fixed;
     top: 20px;
@@ -1744,7 +1692,7 @@ button:active {
 }
 
 .icon-button.auto-start-toggle.active {
-    background-color: var(--timer-start);
+    background-color: #4299e1;  /* Change from var(--timer-start) to blue */
 }
 
 /* Remove the hover rotation for auto-start icon */
