@@ -18,6 +18,9 @@ Visit [thepomoclock.ca](https://thepomoclock.ca) to try it out!
   - Drag-and-drop task reordering
   - Task completion tracking
   - Persistent storage of tasks
+  - Priority levels (Low/Normal/Urgent)
+  - Priority-based filtering
+  - Persistent storage of tasks
 
 - **Analytics**
   - Track focus sessions
