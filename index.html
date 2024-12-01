@@ -136,6 +136,19 @@
             <div class="todo-container">
                 <div class="todo-input-container">
                     <input type="text" id="todo-input" placeholder="Add a task...">
+                    <select id="task-priority" class="priority-select">
+                        <option value="" disabled selected>Mark as...</option>
+                        <option value="normal">Normal</option>
+                        <option value="low">Low</option>
+                        <option value="urgent">Urgent</option>
+                    </select>
+                    <select id="priority-filter" class="priority-select">
+                        <option value="" disabled selected>Filter by...</option>
+                        <option value="all">All</option>
+                        <option value="low">Low</option>
+                        <option value="normal">Normal</option>
+                        <option value="urgent">Urgent</option>
+                    </select>
                     <button onclick="addTodo()" class="add-todo">Add</button>
                 </div>
                 <ul id="todo-list" class="todo-list"></ul>

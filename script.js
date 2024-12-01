@@ -301,17 +301,25 @@ function applyCustomInterval(input) {
 // Adds a new todo item to the list
 function addTodo() {
     const input = document.getElementById('todo-input');
+    const prioritySelect = document.getElementById('task-priority');
     const text = input.value.trim();
+    const priority = prioritySelect.value;
     
-    if (text) {
-        addTodoFromData({
-            text: text,
-            completed: false,
-            hasBeenCounted: false
-        });
-        input.value = '';
-        saveTasks();
+    if (!text) return;
+    if (!priority) {
+        alert('Please select a priority level');
+        return;
     }
+    
+    addTodoFromData({
+        text: text,
+        completed: false,
+        hasBeenCounted: false,
+        priority: priority
+    });
+    input.value = '';
+    prioritySelect.selectedIndex = 0; // Reset to placeholder
+    saveTasks();
 }
 
 // Handles the start of drag operations for todo items
@@ -443,7 +451,8 @@ function saveTasks() {
             tasks.push({
                 text: item.querySelector('.todo-text').textContent,
                 completed: item.querySelector('.todo-checkbox').classList.contains('checked'),
-                hasBeenCounted: item.dataset.counted === 'true'
+                hasBeenCounted: item.dataset.counted === 'true',
+                priority: item.querySelector('.priority-dot').classList[1] // Get priority from dot class
             });
         });
         
@@ -495,6 +504,10 @@ function addTodoFromData(taskData) {
         }
         saveTasks();
     };
+
+    // Add priority dot
+    const priorityDot = document.createElement('div');
+    priorityDot.className = `priority-dot ${taskData.priority || 'normal'}`;
     
     const textSpan = document.createElement('span');
     textSpan.className = 'todo-text';
@@ -511,6 +524,7 @@ function addTodoFromData(taskData) {
     
     li.appendChild(dragHandle);
     li.appendChild(checkbox);
+    li.appendChild(priorityDot); // Add priority dot before text
     li.appendChild(textSpan);
     li.appendChild(deleteBtn);
     
@@ -732,3 +746,29 @@ function showDeleteConfirmation(taskElement) {
     modal.querySelector('.delete-confirm-no').addEventListener('click', deleteNo);
     modal.addEventListener('click', modalClick);
 }
+
+// Update the filterTasks function
+function filterTasks() {
+    const filterValue = document.getElementById('priority-filter').value;
+    const tasks = document.querySelectorAll('.todo-item');
+    
+    tasks.forEach(task => {
+        const taskPriority = task.querySelector('.priority-dot').classList[1];
+        if (!filterValue || filterValue === 'all' || taskPriority === filterValue) {
+            task.classList.remove('filtered');
+        } else {
+            task.classList.add('filtered');
+        }
+    });
+}
+
+// Add this to your DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', () => {
+    // ... existing code ...
+    
+    const priorityFilter = document.getElementById('priority-filter');
+    if (priorityFilter) {
+        priorityFilter.addEventListener('change', filterTasks);
+        priorityFilter.selectedIndex = 0;
+    }
+});
