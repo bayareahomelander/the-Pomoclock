@@ -1731,3 +1731,28 @@ button:active {
     margin: 0;
     overflow: hidden;
 }
+
+.interval-selector {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.icon-button.auto-start-toggle {
+    background-color: var(--button-primary);
+    color: var(--dropdown-bg);  /* This ensures white icon in dark mode */
+}
+
+.icon-button.auto-start-toggle.active {
+    background-color: var(--timer-start);
+}
+
+/* Remove the hover rotation for auto-start icon */
+.icon-button.auto-start-toggle:hover i {
+    transform: none;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .icon-button.auto-start-toggle {
+    color: #cbd5e0;  /* Ensures white icon in dark mode */
+}

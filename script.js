@@ -14,6 +14,7 @@ let analytics = {
 };
 let lastFocusInterval = 25;
 let lastBreakInterval = 5;
+let isAutoStartEnabled = false;
 
 // Updates the timer display with current minutes and seconds
 function updateTimerDisplay() {
@@ -107,12 +108,18 @@ function toggleTimer() {
                     });
                 }
                 
-                if (currentTimerType === 'main') {
-                    alert('Focus time is up! Ready for a break?');
-                    switchTimerType('break');
+                const nextType = currentTimerType === 'main' ? 'break' : 'main';
+                const message = currentTimerType === 'main' 
+                    ? 'Focus time is up! Ready for a break?' 
+                    : 'Break time is over! Ready to focus?';
+                
+                if (isAutoStartEnabled) {
+                    switchTimerType(nextType);
+                    toggleTimer(); // Auto-start the next session
                 } else {
-                    alert('Break time is over! Ready to focus?');
-                    switchTimerType('main');
+                    if (confirm(message)) {
+                        switchTimerType(nextType);
+                    }
                 }
             }
         }, 1000);
@@ -278,13 +285,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const buttonsContainer = document.querySelector('.buttons');
     const resetButton = document.querySelector('.icon-button');
     
-    const skipButton = document.createElement('button');
-    skipButton.className = 'icon-button skip-session';
-    skipButton.innerHTML = '<i class="fas fa-forward"></i>';
-    skipButton.title = 'Skip to break';
-    skipButton.onclick = skipSession;
+    // Set up auto-start buttons
+    const autoStartButtons = document.querySelectorAll('.auto-start-toggle');
+    isAutoStartEnabled = localStorage.getItem('autoStart') === 'true';
     
-    buttonsContainer.insertBefore(skipButton, resetButton);
+    autoStartButtons.forEach(button => {
+        if (isAutoStartEnabled) button.classList.add('active');
+        button.addEventListener('click', () => toggleAutoStart(button));
+    });
 });
 
 // Applies custom interval duration from user input
@@ -772,3 +780,9 @@ document.addEventListener('DOMContentLoaded', () => {
         priorityFilter.selectedIndex = 0;
     }
 });
+
+function toggleAutoStart(button) {
+    isAutoStartEnabled = !isAutoStartEnabled;
+    button.classList.toggle('active');
+    localStorage.setItem('autoStart', isAutoStartEnabled);
+}

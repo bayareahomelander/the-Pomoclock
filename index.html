@@ -121,12 +121,21 @@
                         <span class="selected-time">5 minutes</span>
                         <i class="fas fa-clock"></i>
                     </button>
+                    <button class="auto-start-toggle" title="Auto-start next session">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
                 </div>
             </div>
             
             <div class="timer" id="timer">25:00</div>
             <div class="buttons">
                 <button class="start-pause" onclick="toggleTimer()">Start</button>
+                <button class="auto-start-toggle icon-button" title="Auto-start next session">
+                    <i class="fas fa-sync-alt"></i>
+                </button>
+                <button class="icon-button skip-session" onclick="skipSession()" title="Skip to break">
+                    <i class="fas fa-forward"></i>
+                </button>
                 <button class="icon-button" onclick="resetTimer()" title="Reset">
                     <i class="fas fa-redo-alt"></i>
                 </button>
