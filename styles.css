@@ -1248,6 +1248,23 @@ button:active {
     border-radius: 12px;
     width: 90%;
     max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--button-primary) transparent;
+}
+
+.info-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.info-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.info-content::-webkit-scrollbar-thumb {
+    background-color: var(--button-primary);
+    border-radius: 4px;
 }
 
 .info-text {
@@ -1267,6 +1284,7 @@ button:active {
 
 .info-text li {
     margin-bottom: 0.5rem;
+    font-size: 0.9em;
 }
 
 [data-theme="dark"] .info-content {
@@ -1623,4 +1641,29 @@ button:hover, .add-todo:hover, .icon-button:hover, .theme-toggle:hover,
     position: static;
     top: auto;
     right: auto;
+}
+
+.legal-header {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.legal-text {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.legal-text h4 {
+    margin: 1.2rem 0 0.5rem;
+    color: var(--text-primary);
+}
+
+.legal-text p {
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.info-text > p:first-child {
+    font-size: 0.9em;
 }
