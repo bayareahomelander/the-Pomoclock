@@ -227,8 +227,8 @@ body {
 }
 
 .todo-checkbox {
-    width: 20px;  /* Increased from 18px */
-    height: 20px; /* Increased from 18px */
+    width: 20px;  
+    height: 20px; 
     border: 2px solid var(--button-primary);
     border-radius: 4px;
     cursor: pointer;
@@ -236,7 +236,7 @@ body {
     align-items: center;
     justify-content: center;
     background: transparent;
-    margin-top: 1px; /* Add slight top margin to align with text */
+    margin-top: 1px; 
 }
 
 .todo-checkbox.checked {
@@ -246,14 +246,14 @@ body {
 .todo-checkbox.checked::after {
     content: '✓';
     color: white;
-    font-size: 15px; /* Adjusted from 14px */
-    line-height: 1; /* Ensure vertical centering */
+    font-size: 15px; 
+    line-height: 1; 
 }
 
 .todo-text {
     flex-grow: 1;
     color: var(--text-primary);
-    line-height: 22px; /* Match height of checkbox */
+    line-height: 22px; 
 }
 
 .todo-text.completed {
@@ -444,12 +444,8 @@ button:active {
     background-color: #e53e3e;
 }
 
-.start-pause:hover {
-    /* Remove box-shadow */
-}
-
 .icon-button {
-    background-color: #718096;
+    background-color: var(--button-primary);
     border-radius: 8px;
     width: 32px;
     height: 32px;
@@ -459,10 +455,6 @@ button:active {
 
 .icon-button i {
     transition: transform 0.2s ease;
-}
-
-.icon-button:hover i {
-    transform: none;
 }
 
 .todo-container {
@@ -528,8 +520,8 @@ button:active {
 }
 
 .todo-checkbox {
-    width: 20px;  /* Increased from 18px */
-    height: 20px; /* Increased from 18px */
+    width: 20px;  
+    height: 20px; 
     border: 2px solid var(--button-primary);
     border-radius: 4px;
     cursor: pointer;
@@ -537,7 +529,7 @@ button:active {
     align-items: center;
     justify-content: center;
     background: transparent;
-    margin-top: 1px; /* Add slight top margin to align with text */
+    margin-top: 1px; 
 }
 
 .todo-checkbox.checked {
@@ -547,14 +539,14 @@ button:active {
 .todo-checkbox.checked::after {
     content: '✓';
     color: white;
-    font-size: 15px; /* Adjusted from 14px */
-    line-height: 1; /* Ensure vertical centering */
+    font-size: 15px; 
+    line-height: 1; 
 }
 
 .todo-text {
     flex-grow: 1;
     color: var(--text-primary);
-    line-height: 22px; /* Match height of checkbox */
+    line-height: 22px; 
 }
 
 .todo-text.completed {
@@ -769,53 +761,53 @@ button:active {
     }
 
     .todo-container {
-        max-width: 100%;  /* Allow container to fit screen width */
-        padding: 0 10px;  /* Add some padding on sides */
+        max-width: 100%;  
+        padding: 0 10px;  
     }
 
     .todo-input-container {
-        flex-wrap: wrap;  /* Allow items to wrap on narrow screens */
+        flex-wrap: wrap;  
         gap: 8px;
     }
 
     #todo-input {
-        width: 100%;      /* Full width input on mobile */
-        min-width: unset; /* Remove min-width constraint */
+        width: 100%;      
+        min-width: unset; 
     }
 
     .priority-select {
-        flex: 1;         /* Allow dropdowns to share available space */
-        min-width: 45%;  /* Ensure dropdowns have reasonable width */
-        max-width: 45%;  /* Prevent dropdowns from getting too wide */
+        flex: 1;         
+        min-width: 45%;  
+        max-width: 45%;  
     }
 
     .add-todo {
-        width: 100%;     /* Full width button on mobile */
-        margin-top: 8px; /* Add some space above button */
+        width: 100%;     
+        margin-top: 8px; 
     }
 
-    /* Adjust timer type buttons */
+    
     .timer-type {
-        padding: 10px;   /* Reduce padding */
-        min-width: unset; /* Remove minimum width */
-        width: 100%;     /* Full width */
+        padding: 10px;   
+        min-width: unset; 
+        width: 100%;     
     }
 
     .interval-button {
-        padding: 10px;   /* Reduce padding */
-        min-width: unset; /* Remove minimum width */
+        padding: 10px;   
+        min-width: unset; 
     }
 }
 
-/* Add smaller screen adjustments */
+
 @media (max-width: 480px) {
     .todo-input-container {
         gap: 6px;
     }
 
     .priority-select {
-        font-size: 0.9em;  /* Slightly smaller font */
-        padding: 6px;      /* Reduce padding further */
+        font-size: 0.9em;  
+        padding: 6px;      
     }
 
     #todo-input {
@@ -898,7 +890,7 @@ button:active {
 }
 
 .stat-card:hover {
-    /* Remove transform: translateY(-2px); */
+    
 }
 
 .stat-value {
@@ -1177,7 +1169,7 @@ button:active {
 .github-link {
     position: fixed;
     top: 20px;
-    right: 170px;  /* Increased from 120px */
+    right: 170px;  
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -1228,7 +1220,7 @@ button:active {
 .info-toggle {
     position: fixed;
     top: 20px;
-    right: 120px;  /* Increased from 95px */
+    right: 120px;  
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -1373,7 +1365,7 @@ button:active {
 .interval-toggle {
     position: fixed;
     top: 20px;
-    right: 220px; /* Adjust based on other icons' positions */
+    right: 220px; 
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -1381,7 +1373,7 @@ button:active {
     color: var(--dropdown-bg);
     border: none;
     cursor: pointer;
-    display: none; /* Hidden by default */
+    display: none; 
     align-items: center;
     justify-content: center;
     transition: all 0.2s ease;
@@ -1404,11 +1396,11 @@ button:active {
 
 @media (max-width: 768px) {
     .interval-button {
-        display: none; /* Hide the regular interval button */
+        display: none; 
     }
     
     .interval-toggle {
-        display: flex; /* Show the icon button */
+        display: flex; 
     }
 }
 
@@ -1457,13 +1449,13 @@ button:active {
     background-color: #ed8936;
 }
 
-/* Update todo-item to accommodate the priority dot */
+
 .todo-item {
-    /* ... existing styles ... */
+    
     gap: 8px;
 }
 
-/* Dark theme support for priority select */
+
 [data-theme="dark"] .priority-select {
     color: var(--text-primary);
     background-color: transparent;
@@ -1494,45 +1486,45 @@ button:active {
 
 .icon-button.auto-start-toggle {
     background-color: var(--button-primary);
-    color: var(--dropdown-bg);  /* This ensures white icon in dark mode */
+    color: var(--dropdown-bg);  
 }
 
 .icon-button.auto-start-toggle.active {
-    background-color: #4299e1;  /* Change from var(--timer-start) to blue */
+    background-color: #4299e1;  
 }
 
-/* Remove the hover rotation for auto-start icon */
+
 .icon-button.auto-start-toggle:hover i {
     transform: none;
 }
 
-/* Dark mode adjustments */
+
 [data-theme="dark"] .icon-button.auto-start-toggle {
-    color: #cbd5e0;  /* Ensures white icon in dark mode */
+    color: #cbd5e0;  
 }
 
-/* Standard shadow for all buttons and interactive elements */
+
 button, .add-todo, .icon-button, .theme-toggle, .analytics-toggle, .github-link, .interval-toggle,
 .dropdown-content, .analytics-content, .stat-card, .info-content, .interval-button,
-.interval-option, .interval-modal .close-modal {
+.interval-option, .interval-modal .close-modal, .menu-toggle, .menu-item {
     box-shadow: 
         1px 1px 3px rgba(0, 0, 0, 0.2),
         3px 3px 3px rgba(0, 0, 0, 0.15),
         5px 5px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* Standard hover shadow */
+
 button:hover, .add-todo:hover, .icon-button:hover, .theme-toggle:hover, 
 .analytics-toggle:hover, .github-link:hover, .interval-toggle:hover,
 .stat-card:hover, .interval-button:hover, .interval-option:hover, 
-.interval-modal .close-modal:hover {
+.interval-modal .close-modal:hover, .menu-toggle:hover, .menu-item:hover {
     box-shadow: 
         2px 2px 3px rgba(0, 0, 0, 0.25),
         4px 4px 3px rgba(0, 0, 0, 0.2),
         6px 6px 3px rgba(0, 0, 0, 0.15);
 }
 
-/* Dark mode standard shadow */
+
 [data-theme="dark"] button,
 [data-theme="dark"] .add-todo,
 [data-theme="dark"] .icon-button,
@@ -1546,13 +1538,15 @@ button:hover, .add-todo:hover, .icon-button:hover, .theme-toggle:hover,
 [data-theme="dark"] .info-content,
 [data-theme="dark"] .interval-button,
 [data-theme="dark"] .interval-option,
-[data-theme="dark"] .interval-modal .close-modal {
+[data-theme="dark"] .interval-modal .close-modal,
+[data-theme="dark"] .menu-toggle,
+[data-theme="dark"] .menu-item {
     box-shadow: 
         1px 1px 3px rgba(255, 255, 255, 0.1),
         3px 3px 3px rgba(255, 255, 255, 0.05);
 }
 
-/* Dark mode hover shadow */
+
 [data-theme="dark"] button:hover,
 [data-theme="dark"] .add-todo:hover,
 [data-theme="dark"] .icon-button:hover,
@@ -1563,9 +1557,100 @@ button:hover, .add-todo:hover, .icon-button:hover, .theme-toggle:hover,
 [data-theme="dark"] .stat-card:hover,
 [data-theme="dark"] .interval-button:hover,
 [data-theme="dark"] .interval-option:hover,
-[data-theme="dark"] .interval-modal .close-modal:hover {
+[data-theme="dark"] .interval-modal .close-modal:hover,
+[data-theme="dark"] .menu-toggle:hover,
+[data-theme="dark"] .menu-item:hover {
     box-shadow: 
         2px 2px 3px rgba(255, 255, 255, 0.15),
         4px 4px 3px rgba(255, 255, 255, 0.1),
         6px 6px 3px rgba(255, 255, 255, 0.05);
+}
+
+
+.main-menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.menu-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--button-primary);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.menu-items {
+    position: absolute;
+    top: 0;
+    right: 50px;
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(20px);
+    transition: all 0.3s ease;
+}
+
+.main-menu.active .menu-items {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.menu-item {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--button-primary);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.menu-toggle:hover,
+.menu-item:hover {
+    box-shadow: 
+        2px 2px 3px rgba(0, 0, 0, 0.25),
+        4px 4px 3px rgba(0, 0, 0, 0.2),
+        6px 6px 3px rgba(0, 0, 0, 0.15);
+}
+
+
+[data-theme="dark"] .menu-toggle,
+[data-theme="dark"] .menu-item {
+    box-shadow: 
+        1px 1px 3px rgba(255, 255, 255, 0.1),
+        3px 3px 3px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .menu-toggle:hover,
+[data-theme="dark"] .menu-item:hover {
+    box-shadow: 
+        2px 2px 3px rgba(255, 255, 255, 0.15),
+        4px 4px 3px rgba(255, 255, 255, 0.1),
+        6px 6px 3px rgba(255, 255, 255, 0.05);
+}
+
+
+.github-link,
+.info-toggle,
+.analytics-toggle,
+.theme-toggle {
+    position: static;
+    top: auto;
+    right: auto;
 }

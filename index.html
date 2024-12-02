@@ -81,22 +81,27 @@
         <h1 class="visually-hidden">Pomodoro Timer - the PomoClock</h1>
     </header>
 
-    <div class="top-icons-bar">
-        <a href="https://github.com/bayareahomelander/the-Pomoclock" target="_blank" class="github-link" title="View source code on GitHub" aria-label="View project source code on GitHub">
-            <i class="fab fa-github" aria-hidden="true"></i>
-        </a>
-        <button class="info-toggle" onclick="toggleInfo()" aria-label="Learn about Pomodoro Technique" title="Learn more">
-            <i class="fas fa-info" aria-hidden="true"></i>
+    <div class="main-menu">
+        <button class="menu-toggle" aria-label="Toggle menu" title="Menu">
+            <i class="fas fa-bars"></i>
         </button>
-        <button class="analytics-toggle" onclick="toggleAnalytics()" aria-label="View focus session analytics" title="View analytics">
-            <i class="fas fa-chart-bar" aria-hidden="true"></i>
-        </button>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle between light and dark mode" title="Toggle dark mode">
-            <i class="fas fa-moon" aria-hidden="true"></i>
-        </button>
-        <button class="interval-toggle" onclick="toggleIntervalModal()" title="Change duration">
-            <i class="fas fa-clock"></i>
-        </button>
+        <div class="menu-items">
+            <a href="https://github.com/bayareahomelander/the-Pomoclock" target="_blank" class="menu-item github-link" title="View source code on GitHub" aria-label="View project source code on GitHub">
+                <i class="fab fa-github" aria-hidden="true"></i>
+            </a>
+            <button class="menu-item info-toggle" onclick="toggleInfo()" aria-label="Learn about Pomodoro Technique" title="Learn more">
+                <i class="fas fa-info" aria-hidden="true"></i>
+            </button>
+            <button class="menu-item analytics-toggle" onclick="toggleAnalytics()" aria-label="View focus session analytics" title="View analytics">
+                <i class="fas fa-chart-bar" aria-hidden="true"></i>
+            </button>
+            <button class="menu-item theme-toggle" onclick="toggleTheme()" aria-label="Toggle between light and dark mode" title="Toggle dark mode">
+                <i class="fas fa-moon" aria-hidden="true"></i>
+            </button>
+            <button class="menu-item delete-data" onclick="confirmDataDeletion()" aria-label="Delete all saved data" title="Delete all data">
+                <i class="fas fa-trash-alt" aria-hidden="true"></i>
+            </button>
+        </div>
     </div>
 
     <main>
@@ -143,8 +148,7 @@
                 <div class="todo-input-container">
                     <input type="text" id="todo-input" placeholder="Add a task...">
                     <select id="task-priority" class="priority-select">
-                        <option value="" disabled selected>Mark as...</option>
-                        <option value="normal">Normal</option>
+                        <option value="normal" selected>Normal</option>
                         <option value="low">Low</option>
                         <option value="urgent">Urgent</option>
                     </select>

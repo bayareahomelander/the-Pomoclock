@@ -293,6 +293,26 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isAutoStartEnabled) button.classList.add('active');
         button.addEventListener('click', () => toggleAutoStart(button));
     });
+    
+    // Add menu toggle functionality
+    const mainMenu = document.querySelector('.main-menu');
+    const menuToggle = document.querySelector('.menu-toggle');
+    
+    menuToggle.addEventListener('click', () => {
+        mainMenu.classList.toggle('active');
+        // Toggle between bars and X icons
+        const icon = menuToggle.querySelector('i');
+        icon.className = mainMenu.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mainMenu.contains(e.target)) {
+            mainMenu.classList.remove('active');
+            // Reset to bars icon when closing via outside click
+            menuToggle.querySelector('i').className = 'fas fa-bars';
+        }
+    });
 });
 
 // Applies custom interval duration from user input
@@ -311,13 +331,9 @@ function addTodo() {
     const input = document.getElementById('todo-input');
     const prioritySelect = document.getElementById('task-priority');
     const text = input.value.trim();
-    const priority = prioritySelect.value;
+    const priority = prioritySelect.value || 'normal';
     
     if (!text) return;
-    if (!priority) {
-        alert('Please select a priority level');
-        return;
-    }
     
     addTodoFromData({
         text: text,
@@ -326,7 +342,7 @@ function addTodo() {
         priority: priority
     });
     input.value = '';
-    prioritySelect.selectedIndex = 0; // Reset to placeholder
+    prioritySelect.selectedIndex = 0; // Reset to normal
     saveTasks();
 }
 
@@ -785,4 +801,11 @@ function toggleAutoStart(button) {
     isAutoStartEnabled = !isAutoStartEnabled;
     button.classList.toggle('active');
     localStorage.setItem('autoStart', isAutoStartEnabled);
+}
+
+function confirmDataDeletion() {
+    if (confirm('Are you sure you want to delete all saved data and settings? This action cannot be undone.')) {
+        localStorage.clear();
+        location.reload();
+    }
 }
