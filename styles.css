@@ -890,10 +890,6 @@ button:active {
     text-align: center;
 }
 
-.stat-card:hover {
-    
-}
-
 .stat-value {
     font-size: 2.5rem;
     font-weight: bold;
@@ -1244,10 +1240,18 @@ button:active {
 
 .info-content {
     background-color: var(--bg-primary);
-    padding: 2rem;
+    padding: 1.85rem;
     border-radius: 12px;
     width: 90%;
     max-width: 600px;
+    max-height: 85vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.info-content::-webkit-scrollbar {
+    display: none;
 }
 
 .info-text {
@@ -1258,6 +1262,11 @@ button:active {
 
 .info-text h3 {
     margin: 1.5rem 0 1rem;
+    font-size: 1.1em;
+}
+
+.info-text p:first-of-type {
+    font-size: 0.9em;
 }
 
 .info-text ul, .info-text ol {
@@ -1267,6 +1276,7 @@ button:active {
 
 .info-text li {
     margin-bottom: 0.5rem;
+    font-size: 0.9em;
 }
 
 [data-theme="dark"] .info-content {
@@ -1623,4 +1633,71 @@ button:hover, .add-todo:hover, .icon-button:hover, .theme-toggle:hover,
     position: static;
     top: auto;
     right: auto;
+}
+
+.disclaimer-section {
+    margin-top: 1.5rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.disclaimer-section ol {
+    list-style-type: decimal;
+}
+
+.disclaimer-section li {
+    margin-bottom: 1rem;
+}
+
+.disclaimer-section strong {
+    color: var(--text-primary);
+}
+
+.disclaimer-footer {
+    font-style: italic;
+    margin-top: 0.85rem;
+    font-size: 0.9em;
+}
+
+.disclaimer-link {
+    color: #4299e1;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.disclaimer-link:hover {
+    color: #2b6cb0;
+    text-decoration: underline;
+}
+
+[data-theme="dark"] .disclaimer-link {
+    color: #63b3ed;
+}
+
+[data-theme="dark"] .disclaimer-link:hover {
+    color: #90cdf4;
+}
+
+/* Adjust info modal max-height for scrolling */
+.info-content {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Style scrollbar for better visibility */
+.info-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.info-content::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+.info-content::-webkit-scrollbar-thumb {
+    background: var(--button-primary);
+    border-radius: 4px;
+}
+
+[data-theme="dark"] .info-content::-webkit-scrollbar-thumb {
+    background: var(--button-hover);
 }
