@@ -809,3 +809,31 @@ function confirmDataDeletion() {
         location.reload();
     }
 }
+
+// Add this with the other modal toggle functions
+function toggleLegal() {
+    const modal = document.querySelector('.legal-modal');
+    if (modal.style.display === 'flex') {
+        modal.style.display = 'none';
+    } else {
+        modal.style.display = 'flex';
+    }
+}
+
+// Add this to your DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', () => {
+    // ... existing code ...
+    
+    const legalModal = document.querySelector('.legal-modal');
+    const legalContent = document.querySelector('.legal-content');
+    
+    legalModal.addEventListener('click', (e) => {
+        if (e.target === legalModal) {
+            legalModal.style.display = 'none';
+        }
+    });
+    
+    legalContent.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+});

@@ -86,11 +86,8 @@
             <i class="fas fa-bars"></i>
         </button>
         <div class="menu-items">
-            <a href="https://github.com/bayareahomelander/the-Pomoclock" target="_blank" class="menu-item github-link" title="View source code on GitHub" aria-label="View project source code on GitHub">
-                <i class="fab fa-github" aria-hidden="true"></i>
-            </a>
             <button class="menu-item info-toggle" onclick="toggleInfo()" aria-label="Learn about Pomodoro Technique" title="Learn more">
-                <i class="fas fa-info" aria-hidden="true"></i>
+                <i class="fas fa-book" aria-hidden="true"></i>
             </button>
             <button class="menu-item analytics-toggle" onclick="toggleAnalytics()" aria-label="View focus session analytics" title="View analytics">
                 <i class="fas fa-chart-bar" aria-hidden="true"></i>
@@ -98,6 +95,12 @@
             <button class="menu-item theme-toggle" onclick="toggleTheme()" aria-label="Toggle between light and dark mode" title="Toggle dark mode">
                 <i class="fas fa-moon" aria-hidden="true"></i>
             </button>
+            <button class="menu-item legal-toggle" onclick="toggleLegal()" aria-label="View legal disclaimer" title="Legal disclaimer">
+                <i class="fas fa-info" aria-hidden="true"></i>
+            </button>
+            <a href="https://github.com/bayareahomelander/the-Pomoclock" target="_blank" class="menu-item github-link" title="View source code on GitHub" aria-label="View project source code on GitHub">
+                <i class="fab fa-github" aria-hidden="true"></i>
+            </a>
             <button class="menu-item delete-data" onclick="confirmDataDeletion()" aria-label="Delete all saved data" title="Delete all data">
                 <i class="fas fa-trash-alt" aria-hidden="true"></i>
             </button>
@@ -228,27 +231,6 @@
                 <p class="try-it-out">Ready to boost your productivity? Try it out!</p>
                 
                 <p class="learn-more">Learn more about the Pomodoro Technique on <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank" rel="noopener noreferrer">Wikipedia</a>.</p>
-
-                <div class="disclaimer-section" id="disclaimer">
-                    <h3>Legal Disclaimer</h3>
-                    <ol>
-                        <li><strong>Trademark & Attribution</strong><br>
-                        This website ("the PomoClock") is not affiliated with, endorsed by, or connected to Francesco Cirillo or the Pomodoro Technique®. The Pomodoro Technique® and Pomodoro® are registered trademarks of Francesco Cirillo. This is an independent implementation inspired by the time management method.</li>
-
-                        <li><strong>Data Usage & Privacy</strong><br>
-                        This application stores data locally on your device using browser local storage. We do not collect, store, or transmit any personal information to external servers. You are responsible for managing your browser's local storage settings.</li>
-
-                        <li><strong>Liability</strong><br>
-                        This tool is provided "as is" without any warranties of any kind, either express or implied. The developer(s) of this website are not responsible for any damages, losses, or consequences that may result from the use or misuse of this application.</li>
-
-                        <li><strong>Medical Disclaimer</strong><br>
-                        This application is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of qualified health providers with any questions you may have regarding your work/rest schedule and screen time habits.</li>
-
-                        <li><strong>Changes to Terms</strong><br>
-                        We reserve the right to modify these terms at any time. Continued use of the application constitutes acceptance of any modified terms.</li>
-                    </ol>
-                    <p class="disclaimer-footer">By using this application, you acknowledge that you have read, understood, and agreed to these terms.</p>
-                </div>
             </div>
             <button class="close-modal" onclick="toggleInfo()">Close</button>
         </div>
@@ -276,6 +258,26 @@
                 <button class="delete-confirm-yes">Delete</button>
                 <button class="delete-confirm-no">Cancel</button>
             </div>
+        </div>
+    </div>
+
+    <div class="legal-modal">
+        <div class="legal-content">
+            <h3>Legal Disclaimer</h3>
+            <div class="legal-text">
+                <p><strong>Trademark & Attribution</strong><br>
+                This website ("the PomoClock") is not affiliated with, endorsed by, or connected to Francesco Cirillo or the Pomodoro Technique®. The Pomodoro Technique® and Pomodoro® are registered trademarks of Francesco Cirillo.</p>
+                
+                <p><strong>Data Usage & Privacy</strong><br>
+                This application stores data locally on your device using browser local storage. We do not collect, store, or transmit any personal information to external servers.</p>
+                
+                <p><strong>Liability</strong><br>
+                This tool is provided "as is" without any warranties. The developers are not responsible for any damages or consequences that may result from the use of this application.</p>
+                
+                <p><strong>Medical Notice</strong><br>
+                This application is not a substitute for professional medical advice regarding work/rest schedules and screen time habits.</p>
+            </div>
+            <button class="close-modal" onclick="toggleLegal()">Close</button>
         </div>
     </div>
 

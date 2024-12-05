@@ -1629,53 +1629,11 @@ button:hover, .add-todo:hover, .icon-button:hover, .theme-toggle:hover,
 .github-link,
 .info-toggle,
 .analytics-toggle,
-.theme-toggle {
+.theme-toggle,
+.legal-toggle {  /* Added legal-toggle */
     position: static;
     top: auto;
     right: auto;
-}
-
-.disclaimer-section {
-    margin-top: 1.5rem;
-    padding-top: 0.85rem;
-    border-top: 1px solid var(--border-color);
-}
-
-.disclaimer-section ol {
-    list-style-type: decimal;
-}
-
-.disclaimer-section li {
-    margin-bottom: 1rem;
-}
-
-.disclaimer-section strong {
-    color: var(--text-primary);
-}
-
-.disclaimer-footer {
-    font-style: italic;
-    margin-top: 0.85rem;
-    font-size: 0.9em;
-}
-
-.disclaimer-link {
-    color: #4299e1;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.disclaimer-link:hover {
-    color: #2b6cb0;
-    text-decoration: underline;
-}
-
-[data-theme="dark"] .disclaimer-link {
-    color: #63b3ed;
-}
-
-[data-theme="dark"] .disclaimer-link:hover {
-    color: #90cdf4;
 }
 
 /* Adjust info modal max-height for scrolling */
@@ -1700,4 +1658,65 @@ button:hover, .add-todo:hover, .icon-button:hover, .theme-toggle:hover,
 
 [data-theme="dark"] .info-content::-webkit-scrollbar-thumb {
     background: var(--button-hover);
+}
+
+.legal-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.legal-content {
+    background-color: var(--bg-primary);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.1),
+        4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.legal-text {
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-size: 0.9em;
+    margin: 1.5rem 0;
+}
+
+.legal-text p {
+    margin-bottom: 1rem;
+}
+
+.legal-text strong {
+    color: var(--text-primary);
+    display: inline-block;
+    margin-bottom: 0.3rem;
+}
+
+[data-theme="dark"] .legal-content {
+    background-color: var(--bg-primary);
+    box-shadow: 
+        2px 2px 4px rgba(255, 255, 255, 0.05),
+        4px 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+/* Add responsive styles */
+@media (max-width: 768px) {
+    .legal-content {
+        width: 95%;
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .legal-text {
+        font-size: 0.85em;
+    }
 }
