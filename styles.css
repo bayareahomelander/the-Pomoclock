@@ -1720,3 +1720,36 @@ button:hover, .add-todo:hover, .icon-button:hover, .theme-toggle:hover,
         font-size: 0.85em;
     }
 }
+
+.quick-start {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.quick-start h4 {
+    margin: 1.2rem 0 0.8rem;
+    color: var(--text-primary);
+    font-size: 1em;
+}
+
+.quick-start ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.2rem;
+}
+
+.quick-start li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.menu-guide li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.menu-guide li::before {
+    margin-right: 0.5rem;
+}
