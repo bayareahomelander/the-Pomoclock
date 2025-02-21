@@ -1753,3 +1753,85 @@ button:hover, .add-todo:hover, .icon-button:hover, .theme-toggle:hover,
 .menu-guide li::before {
     margin-right: 0.5rem;
 }
+
+.audio-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;  /* Changed from left: 20px */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--button-primary);
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--dropdown-bg);
+    box-shadow: 
+        1px 1px 3px rgba(0, 0, 0, 0.2),
+        3px 3px 3px rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+}
+
+.audio-controls select {
+    background: transparent;
+    border: none;
+    color: white;  /* Also setting select text to white for consistency */
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 140px;
+}
+
+.audio-controls button {
+    background: transparent;
+    border: none;
+    color: white;  /* Force icon color to always be white */
+    cursor: pointer;
+    padding: 4px;
+    min-width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.audio-controls .volume-slider {
+    width: 80px;  /* Increased from 60px */
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+/* Add hover effects to match other buttons */
+.audio-controls button:hover,
+.audio-controls select:hover {
+    opacity: 0.9;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .audio-controls {
+    box-shadow: 
+        1px 1px 3px rgba(255, 255, 255, 0.1),
+        3px 3px 3px rgba(255, 255, 255, 0.05);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .audio-controls {
+        bottom: 10px;
+        right: 10px;  /* Changed from left: 10px */
+        padding: 6px 10px;
+    }
+    
+    .audio-controls select {
+        min-width: 120px;  /* Adjusted for mobile */
+    }
+    
+    .audio-controls .volume-slider {
+        width: 60px;  /* Adjusted for mobile */
+    }
+}
+
+/* Ensure color stays white in dark mode */
+[data-theme="dark"] .audio-controls button i,
+[data-theme="dark"] .audio-controls select {
+    color: white;
+}

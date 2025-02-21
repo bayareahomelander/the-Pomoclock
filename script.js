@@ -15,6 +15,15 @@ let analytics = {
 let lastFocusInterval = 25;
 let lastBreakInterval = 5;
 let isAutoStartEnabled = false;
+let audio = null;
+let currentSound = 'rain';
+
+const sounds = {
+    rain: './sounds/rain.mp3',      // Replace with your downloaded file names
+    waves: './sounds/waves.mp3',
+    white: './sounds/white-noise.mp3',
+    forest: './sounds/forest.mp3'
+};
 
 // Updates the timer display with current minutes and seconds
 function updateTimerDisplay() {
@@ -313,6 +322,8 @@ document.addEventListener('DOMContentLoaded', () => {
             menuToggle.querySelector('i').className = 'fas fa-bars';
         }
     });
+
+    initAudioPlayer();
 });
 
 // Applies custom interval duration from user input
@@ -837,3 +848,43 @@ document.addEventListener('DOMContentLoaded', () => {
         e.stopPropagation();
     });
 });
+
+function initAudioPlayer() {
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const soundSelect = document.getElementById('soundSelect');
+    const volumeControl = document.getElementById('volumeControl');
+
+    function loadAndPlayAudio(soundType) {
+        if (audio) {
+            audio.pause();
+        }
+        audio = new Audio(sounds[soundType]);
+        audio.loop = true;
+        audio.volume = volumeControl.value;
+        audio.play().catch(e => console.log('Audio play failed:', e));
+    }
+
+    playPauseBtn.addEventListener('click', () => {
+        const icon = playPauseBtn.querySelector('i');
+        if (!audio || audio.paused) {
+            icon.className = 'fas fa-pause';
+            loadAndPlayAudio(currentSound);
+        } else {
+            icon.className = 'fas fa-play';
+            audio.pause();
+        }
+    });
+
+    soundSelect.addEventListener('change', (e) => {
+        currentSound = e.target.value;
+        if (audio && !audio.paused) {
+            loadAndPlayAudio(currentSound);
+        }
+    });
+
+    volumeControl.addEventListener('input', (e) => {
+        if (audio) {
+            audio.volume = e.target.value;
+        }
+    });
+}
