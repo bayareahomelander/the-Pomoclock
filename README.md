@@ -14,6 +14,13 @@ Visit [thepomoclock.ca](https://thepomoclock.ca) to try it out!
   - Visual and audio notifications
   - Session skipping capability
 
+- **Ambient Sounds**
+  - Built-in audio player
+  - Multiple ambient sound options (Rain, Ocean Waves, White Noise, Forest)
+  - Volume control
+  - Continuous loop playback
+  - Seamless audio switching
+
 - **Task Management**
   - Drag-and-drop task reordering
   - Task completion tracking
@@ -38,6 +45,7 @@ Visit [thepomoclock.ca](https://thepomoclock.ca) to try it out!
 ## Technical Features
 
 - Pure vanilla JavaScript (no frameworks)
+- HTML5 Audio API implementation
 - Local Storage for data persistence
 - Notifications API integration
 - Drag and Drop API implementation
@@ -50,9 +58,10 @@ Visit [thepomoclock.ca](https://thepomoclock.ca) to try it out!
 1. Choose between Focus and Break modes
 2. Select or customize your timer duration
 3. Click Start to begin your session
-4. Add and manage tasks while you work
-5. Track your progress in the analytics panel
-6. Get notified when your session ends
+4. (Optional) Select ambient sound and adjust volume for better focus
+5. Add and manage tasks while you work
+6. Track your progress in the analytics panel
+7. Get notified when your session ends
 
 ## Browser Support
 
@@ -65,3 +74,4 @@ Visit [thepomoclock.ca](https://thepomoclock.ca) to try it out!
 
 - Inspired by the Pomodoro Technique® developed by Francesco Cirillo
 - Icons provided by Font Awesome
+- Ambient sounds from Pixabay Sound Library
