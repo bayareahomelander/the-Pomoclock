@@ -19,10 +19,10 @@ let audio = null;
 let currentSound = 'rain';
 
 const sounds = {
-    rain: '/the-Pomoclock/sounds/rain.mp3',
-    waves: '/the-Pomoclock/sounds/waves.mp3',
-    white: '/the-Pomoclock/sounds/white-noise.mp3',
-    forest: '/the-Pomoclock/sounds/forest.mp3'
+    rain: 'https://cdn.jsdelivr.net/gh/bayareahomelander/the-Pomoclock@main/sounds/rain.mp3',
+    waves: 'https://cdn.jsdelivr.net/gh/bayareahomelander/the-Pomoclock@main/sounds/waves.mp3',
+    white: 'https://cdn.jsdelivr.net/gh/bayareahomelander/the-Pomoclock@main/sounds/white-noise.mp3',
+    forest: 'https://cdn.jsdelivr.net/gh/bayareahomelander/the-Pomoclock@main/sounds/forest.mp3'
 };
 
 // Updates the timer display with current minutes and seconds
@@ -734,7 +734,6 @@ function toggleInfo() {
     }
 }
 
-// Add this to your DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', () => {
     const infoModal = document.querySelector('.info-modal');
     const infoContent = document.querySelector('.info-content');
@@ -750,7 +749,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Add this function to handle the delete confirmation
 function showDeleteConfirmation(taskElement) {
     const modal = document.querySelector('.delete-confirm-modal');
     modal.style.display = 'flex';
@@ -797,10 +795,7 @@ function filterTasks() {
     });
 }
 
-// Add this to your DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', () => {
-    // ... existing code ...
-    
     const priorityFilter = document.getElementById('priority-filter');
     if (priorityFilter) {
         priorityFilter.addEventListener('change', filterTasks);
@@ -821,7 +816,6 @@ function confirmDataDeletion() {
     }
 }
 
-// Add this with the other modal toggle functions
 function toggleLegal() {
     const modal = document.querySelector('.legal-modal');
     if (modal.style.display === 'flex') {
@@ -831,9 +825,7 @@ function toggleLegal() {
     }
 }
 
-// Add this to your DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', () => {
-    // ... existing code ...
     
     const legalModal = document.querySelector('.legal-modal');
     const legalContent = document.querySelector('.legal-content');
@@ -861,7 +853,31 @@ function initAudioPlayer() {
         audio = new Audio(sounds[soundType]);
         audio.loop = true;
         audio.volume = volumeControl.value;
-        audio.play().catch(e => console.log('Audio play failed:', e));
+        
+        // Add error handling
+        audio.addEventListener('error', (e) => {
+            console.error('Audio error:', e);
+            console.log('Failed to load:', sounds[soundType]);
+            alert('Failed to load audio. Please try again later.');
+            
+            // Reset play button state
+            const icon = document.querySelector('#playPauseBtn i');
+            icon.className = 'fas fa-play';
+        });
+
+        // Add loading indicator
+        const icon = document.querySelector('#playPauseBtn i');
+        icon.className = 'fas fa-spinner fa-spin';
+        
+        audio.play()
+            .then(() => {
+                icon.className = 'fas fa-pause';
+            })
+            .catch(e => {
+                console.error('Audio play failed:', e);
+                icon.className = 'fas fa-play';
+                alert('Failed to play audio. Please try again later.');
+            });
     }
 
     playPauseBtn.addEventListener('click', () => {
