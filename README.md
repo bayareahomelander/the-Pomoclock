@@ -44,7 +44,7 @@ Visit [thepomoclock.ca](https://thepomoclock.ca) to try it out!
 
 ## Technical Features
 
-- Pure vanilla JavaScript (no frameworks)
+- JavaScript
 - HTML5 Audio API implementation
 - Local Storage for data persistence
 - Notifications API integration
