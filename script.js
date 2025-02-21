@@ -19,10 +19,10 @@ let audio = null;
 let currentSound = 'rain';
 
 const sounds = {
-    rain: './sounds/rain.mp3',      // Replace with your downloaded file names
-    waves: './sounds/waves.mp3',
-    white: './sounds/white-noise.mp3',
-    forest: './sounds/forest.mp3'
+    rain: '/the-Pomoclock/sounds/rain.mp3',
+    waves: '/the-Pomoclock/sounds/waves.mp3',
+    white: '/the-Pomoclock/sounds/white-noise.mp3',
+    forest: '/the-Pomoclock/sounds/forest.mp3'
 };
 
 // Updates the timer display with current minutes and seconds
